@@ -29,6 +29,11 @@ const Navbar = () => {
           AddPlant
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/myPlants" className="">
+          My Plants
+        </NavLink>
+      </li>
     </>
   );
 

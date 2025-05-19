@@ -4,6 +4,8 @@ import Home from "../Component/Home";
 import Login from "../Component/Login";
 import Register from "../Component/Register";
 import PrivetRoutes from "../Pages/PrivetRoutes";
+import AddPlant from "../Pages/AddPlant";
+import MyPlants from "../Pages/MyPlants";
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +26,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/addPlant",
-                element: <PrivetRoutes></PrivetRoutes>
+                element: <PrivetRoutes>
+                    <AddPlant></AddPlant>
+                </PrivetRoutes>
+            },
+            {
+                path: "/myPlants",
+                element: <PrivetRoutes>
+                    <MyPlants></MyPlants>
+                </PrivetRoutes>
             }
         ]
     }

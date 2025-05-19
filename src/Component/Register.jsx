@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 
 const Register = () => {
 
-    const {setUser, createUser, signInWithGoogle} = use(AuthContext)
+    const {user, setUser, createUser, signInWithGoogle, updateUserProfile} = use(AuthContext)
 
     const location = useLocation()
   const navigate = useNavigate()
@@ -41,9 +41,9 @@ const Register = () => {
                 });
         setUser(currentUser);
         navigate(location?.state || "/")
-        // updateUserProfile({displayName: name, photoURL: photo})
+        updateUserProfile({displayName: name, photoURL: photo})
         .then(()=> {
-            // setUser({...user, displayName: name, photoURL: photo});
+            setUser({...user, displayName: name, photoURL: photo});
         }).catch(() =>{
             
         })

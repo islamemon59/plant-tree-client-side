@@ -7,6 +7,7 @@ import PrivetRoutes from "../Pages/PrivetRoutes";
 import AddPlant from "../Pages/AddPlant";
 import MyPlants from "../Pages/MyPlants";
 import NotFoundPage from "../Component/NotFoundPage";
+import AllPlants from "../Pages/AllPlants";
 
 export const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
             {
                 path:"/register",
                 Component: Register,
+            },
+            {
+                path: "/allPlants",
+                Component: AllPlants
             },
             {
                 path: "/addPlant",

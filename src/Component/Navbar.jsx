@@ -14,6 +14,21 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+            <li>
+        <NavLink to="/allPlants" className="font-semibold">
+          All Plants
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/addPlant" className="font-semibold">
+          Add Plant
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/myPlants" className="font-semibold">
+          My Plants
+        </NavLink>
+      </li>
       <li>
         <NavLink to="/login" className="font-semibold">
           Login
@@ -22,16 +37,6 @@ const Navbar = () => {
       <li>
         <NavLink to="/register" className="font-semibold">
           Register
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/addPlant" className="font-semibold">
-          AddPlant
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/myPlants" className="font-semibold">
-          My Plants
         </NavLink>
       </li>
     </>

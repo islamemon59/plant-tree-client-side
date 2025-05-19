@@ -6,6 +6,7 @@ import Register from "../Component/Register";
 import PrivetRoutes from "../Pages/PrivetRoutes";
 import AddPlant from "../Pages/AddPlant";
 import MyPlants from "../Pages/MyPlants";
+import NotFoundPage from "../Component/NotFoundPage";
 
 export const router = createBrowserRouter([
     {
@@ -35,7 +36,11 @@ export const router = createBrowserRouter([
                 element: <PrivetRoutes>
                     <MyPlants></MyPlants>
                 </PrivetRoutes>
-            }
+            },
         ]
+    },
+    {
+        path: "*",
+        element: <NotFoundPage></NotFoundPage>
     }
 ])

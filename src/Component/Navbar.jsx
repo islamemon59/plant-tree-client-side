@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../Context/CreateContex";
 
 const Navbar = () => {
+  const {user} = use(AuthContext)
   const links = (
     <>
       <li><NavLink to="/" className="">Home</NavLink></li>

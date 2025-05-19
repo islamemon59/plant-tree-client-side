@@ -31,7 +31,7 @@ const Banner = () => {
           slot="container-start"
           className="parallax-bg"
           style={{
-            "background-image":
+            "backgroundImage":
               "url(https://cdn.create.vista.com/api/media/medium/193173092/stock-photo-plant-tree-passion-fruit-strong-seedlings-planting-young-tree-old?token=)",
           }}
           data-swiper-parallax="-23%"

@@ -2,5 +2,5 @@
 @plugin "daisyui";
 
 li a.active {
-    color: blue;
+    color: green;
 }

@@ -10,27 +10,27 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/" className="">
+        <NavLink to="/" className="font-semibold">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/login" className="">
+        <NavLink to="/login" className="font-semibold">
           Login
         </NavLink>
       </li>
       <li>
-        <NavLink to="/register" className="">
+        <NavLink to="/register" className="font-semibold">
           Register
         </NavLink>
       </li>
       <li>
-        <NavLink to="/addPlant" className="">
+        <NavLink to="/addPlant" className="font-semibold">
           AddPlant
         </NavLink>
       </li>
       <li>
-        <NavLink to="/myPlants" className="">
+        <NavLink to="/myPlants" className="font-semibold">
           My Plants
         </NavLink>
       </li>
@@ -56,7 +56,7 @@ const Navbar = () => {
     <div className="navbar bg-transparent">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className=" lg:hidden p-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -80,7 +80,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="md:text-4xl font-semibold text-green-600 text-xl md:py-2 flex justify-center items-center"><img className="w-8 md:w-12" src="logo.png" alt="logo" /><span>Plant Store</span></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -110,9 +110,9 @@ const Navbar = () => {
             </ul>
           </div>
         ) : (
-          <div className="space-x-3">
-            <Link className="btn" to="/login">Login</Link>
-            <Link className="btn" to="/register">Login</Link>
+          <div className="space-x-3 flex md:flex-row flex-col justify-end">
+            <Link className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs" to="/login">Login</Link>
+            <Link className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs" to="/register">Register</Link>
           </div>
         )}
       </div>

@@ -1,14 +1,53 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { use } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../Context/CreateContex";
+import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { signInUser, setUser, signInWithGoogle } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
+    signInUser(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        Swal.fire({
+          title: "Login Successful",
+          icon: "success",
+          draggable: true,
+        });
+        setUser(currentUser);
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(`${error.message}`);
+      });
+  };
 
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const currentUser = result.user;
+        Swal.fire({
+          title: "Login Successful",
+          icon: "success",
+          draggable: true,
+        });
+        setUser(currentUser);
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
   };
 
   return (
@@ -38,7 +77,6 @@ const Login = () => {
               <a className="link link-hover hover:text-indigo-500">
                 Forgot password?
               </a>
-              {/* <p className="mt-2 text-red-500">{error}</p> */}
             </div>
             <button type="submit" className="btn btn-neutral mt-4">
               Login
@@ -46,9 +84,10 @@ const Login = () => {
             <div>
               <button
                 type="button"
+                onClick={handleGoogleLogin}
                 className="btn btn-outline mt-4 w-full"
               >
-                {/* <FcGoogle size={24} /> Login with Google */}
+                <FcGoogle size={24} /> Login with Google
               </button>
             </div>
             <p className="font-semibold">

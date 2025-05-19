@@ -111,13 +111,8 @@ const Register = () => {
               placeholder="Password"
               required
             />
-            <div>
-              <a className="link link-hover hover:text-indigo-500">
-                Forgot password?
-              </a>
-            </div>
             <button type="submit" className="btn btn-neutral mt-4">
-              Login
+              Register
             </button>
             <div>
         <button type="button"

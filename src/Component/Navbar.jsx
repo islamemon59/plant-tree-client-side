@@ -101,12 +101,12 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Name: {user.displayName}</a>
+              <li className="text-xl font-bold text-center">
+                 Name: {user.displayName}
               </li>
-              <li onClick={handleLogout}>
-                <a>Logout</a>
-              </li>
+              <button className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs mt-4" onClick={handleLogout}>
+                Logout
+              </button>
             </ul>
           </div>
         ) : (

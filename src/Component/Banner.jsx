@@ -1,88 +1,56 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { FaTree, FaSeedling, FaLeaf } from "react-icons/fa";
 
-import "../styles.css";
 
-// import required modules
-import { Parallax, Pagination, Navigation } from "swiper/modules";
 
 const Banner = () => {
+const slides = [
+  {
+    image: "https://static.vecteezy.com/system/resources/previews/002/183/731/non_2x/set-of-illustrations-of-caring-for-a-tangerine-tree-vector.jpg",
+    title: "Plant Trees, Save Earth",
+    subtitle: "Join our green mission to restore nature.",
+  },
+  {
+    image: "https://static.vecteezy.com/system/resources/previews/043/422/151/non_2x/weekend-activity-flat-illustration-design-vector.jpg",
+    title: "One Tree at a Time",
+    subtitle: "Every small step makes a big impact.",
+  },
+  {
+    image: "https://cdni.iconscout.com/illustration/premium/thumb/tree-plantation-by-kids-illustration-download-in-svg-png-gif-file-formats--gardening-on-garden-planting-trees-watering-ecology-pack-environments-illustrations-4177944.png?f=webp",
+    title: "Green Today, Clean Tomorrow",
+    subtitle: "Let’s build a greener future together.",
+  },
+];
   return (
-    <div className="py-6">
+    <div className="w-full h-[500px] relative mt-4 rounded-xl overflow-hidden shadow-xl">
       <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
-        speed={600}
-        parallax={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Parallax, Pagination, Navigation]}
-        className="mySwiper min-h-[600px] rounded-xl"
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 4000 }}
+        loop
+        className="w-full h-full"
       >
-        <div
-          slot="container-start"
-          className="parallax-bg"
-          style={{
-            "backgroundImage":
-              "url(https://cdn.create.vista.com/api/media/medium/193173092/stock-photo-plant-tree-passion-fruit-strong-seedlings-planting-young-tree-old?token=)",
-          }}
-          data-swiper-parallax="-23%"
-        ></div>
-        <SwiperSlide>
-          <div className="mt-30 md:space-y-5 space-y-2">
-            <div className="title" data-swiper-parallax="-300">
-              <span className="md:text-6xl font-bold">Grow Green, Breathe Clean</span>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className="w-full h-full bg-cover bg-center flex items-center justify-center"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              <div className="bg-black/50 w-full h-full flex flex-col items-center justify-center text-center text-white px-6">
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">{slide.title}</h2>
+                <p className="text-lg md:text-xl max-w-xl">{slide.subtitle}</p>
+              </div>
             </div>
-            <div className="subtitle" data-swiper-parallax="-200">
-              <span className="md:text-3xl">Planting trees today for a healthier, fresher tomorrow.</span>
-            </div>
-            <div className="text" data-swiper-parallax="-100">
-              <p className="md:text-[18px] leading-7">
-                Planting trees helps purify the air, absorb carbon dioxide, and
-                reduce the effects of climate change. Trees also improve soil
-                quality and conserve water.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="mt-30 md:space-y-5 space-y-2">
-            <div className="title" data-swiper-parallax="-300">
-              <span className="md:text-6xl font-bold">Roots of Life</span>
-            </div>
-            <div className="subtitle" data-swiper-parallax="-200">
-              <span className="md:text-3xl">Trees support wildlife, clean the air, and enrich our planet.</span>
-            </div>
-            <div className="text" data-swiper-parallax="-100">
-              <p className="md:text-[18px] leading-7">
-                Trees provide shelter and food for many animals, birds, and insects. By planting trees, we support biodiversity and help protect ecosystems.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="mt-30 md:space-y-5 space-y-2">
-            <div className="title" data-swiper-parallax="-300">
-              <span className="md:text-6xl font-bold">Plant a Tree, Shape the Future</span>
-            </div>
-            <div className="subtitle" data-swiper-parallax="-200">
-              <span className="md:text-3xl">A small act of planting can lead to big environmental change.</span>
-            </div>
-            <div className="text" data-swiper-parallax="-100">
-              <p className="md:text-[18px] leading-7">
-                Trees offer shade, reduce noise pollution, and create green spaces that improve mental health and community well-being. They also enhance the beauty of any area.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

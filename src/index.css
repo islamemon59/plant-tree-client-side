@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Underdog&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 
-
+* {
+  font-family: "Underdog", system-ui;
+}
 
 li a.active {
     color: green;

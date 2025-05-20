@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
+import { AuthContext } from "../Context/CreateContex";
 
 const AddPlant = () => {
+  const {user} = use(AuthContext)
+  console.log(user);
       const [startDate, setStartDate] = useState(new Date());
   return (
     <div>
@@ -24,13 +27,13 @@ const AddPlant = () => {
             <input
               type="text"
               className="input w-full"
-              name="quantity"
+              name="description"
               placeholder="Description"
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Category</label>
-            <select className="input input-bordered w-full " name="day" id="day">
+            <select className="input input-bordered w-full " name="category" id="day">
               <option value="sunday">Succulent</option>
               <option value="monday">Fern</option>
               <option value="tuesday">Flowering</option>
@@ -38,7 +41,7 @@ const AddPlant = () => {
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Care Level</label>
-            <select className="input input-bordered w-full " name="day" id="day">
+            <select className="input input-bordered w-full " name="careLevel" id="day">
               <option value="sunday">Easy</option>
               <option value="monday">Moderate</option>
               <option value="tuesday">Difficult</option>
@@ -75,7 +78,7 @@ const AddPlant = () => {
             <input
               type="text"
               className="input w-full"
-              name="details"
+              name="health"
               placeholder="Enter coffee detail"
             />
           </fieldset>

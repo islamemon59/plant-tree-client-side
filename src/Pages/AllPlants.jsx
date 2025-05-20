@@ -1,4 +1,5 @@
 import React from "react";
+import { FcViewDetails } from "react-icons/fc";
 
 const AllPlants = () => {
   return (
@@ -40,7 +41,7 @@ const AllPlants = () => {
               </td>
               <td>Purple</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <button className="btn"><FcViewDetails size={24} /></button>
               </th>
             </tr>
           </tbody>

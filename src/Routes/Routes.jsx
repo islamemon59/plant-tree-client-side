@@ -10,6 +10,7 @@ import NotFoundPage from "../Component/NotFoundPage";
 import AllPlants from "../Pages/AllPlants";
 import Loading from "../Component/Loading";
 import ViewDetails from "../Pages/ViewDetails";
+import UpdatePlant from "../Pages/UpdatePlant";
 
 export const router = createBrowserRouter([
   {
@@ -53,7 +54,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myPlants/:email",
+        path: "/myPlants",
         hydrateFallbackElement: <Loading></Loading>,
         loader: () => fetch("http://localhost:3000/plants"),
         element: (
@@ -62,6 +63,12 @@ export const router = createBrowserRouter([
           </PrivetRoutes>
         ),
       },
+      {
+        path: "/updatePlant/:id",
+        hydrateFallbackElement: <Loading></Loading>,
+        loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`),
+        Component: UpdatePlant,
+      }
     ],
   },
   {

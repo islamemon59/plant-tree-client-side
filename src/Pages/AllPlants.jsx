@@ -13,7 +13,7 @@ const AllPlants = () => {
   console.log(plants);
   return (
     <div>
-      <h1 className="text-center md:text-5xl text-3xl font-semibold text-green-500 my-10">
+      <h1 className="text-center md:text-5xl text-3xl font-semibold text-green-800 my-10">
         All Plants Collection Here
       </h1>
       <div className="overflow-x-auto py-6">

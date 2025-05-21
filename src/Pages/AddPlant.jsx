@@ -3,35 +3,43 @@ import DatePicker from "react-datepicker";
 import { AuthContext } from "../Context/CreateContex";
 
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
 
 const AddPlant = () => {
-  const { user } = use(AuthContext);
+  const { user, plants, setPlants } = use(AuthContext);
   const [nextDate, setNextDate] = useState(new Date());
-  const [lastDate, setLastDate] = useState(new Date())
+  const [lastDate, setLastDate] = useState(new Date());
   console.log(user);
 
-  const handleAddPlant = e => {
-    e.preventDefault()
+  const handleAddPlant = (e) => {
+    e.preventDefault();
     const form = e.target;
-    const formData = new FormData(form)
-    const newData = Object.fromEntries(formData.entries())
-    const nextWateringDate = nextDate.toLocaleDateString("en-CA")
-    const lastWateredDate = lastDate.toLocaleDateString("en-CA")
-    const newPlant = {...newData, nextWateringDate, lastWateredDate}
+    const formData = new FormData(form);
+    const newData = Object.fromEntries(formData.entries());
+    const nextWateringDate = nextDate.toLocaleDateString("en-CA");
+    const lastWateredDate = lastDate.toLocaleDateString("en-CA");
+    const newPlant = { ...newData, nextWateringDate, lastWateredDate };
     console.log(newPlant);
 
     fetch("http://localhost:3000/plants", {
       method: "POST",
       headers: {
-        "Content-Type" : "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPlant)
+      body: JSON.stringify(newPlant),
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log("after post data", data);
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          setPlants([...plants, newPlant])
+          Swal.fire({
+            title: "Plant Successfully Added!",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      });
+  };
 
   return (
     <div>
@@ -123,7 +131,6 @@ const AddPlant = () => {
               type="text"
               className="input w-full"
               name="email"
-
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">

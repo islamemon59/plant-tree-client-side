@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Context/CreateContex";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { FaSeedling } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -85,7 +86,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="md:text-4xl font-semibold text-green-600 text-xl md:py-2 flex justify-center items-center"><img className="w-8 md:w-12" src="logo.png" alt="logo" /><span>Plant Store</span></a>
+        <a className="md:text-4xl font-semibold text-green-600 text-xl md:py-2 flex justify-center items-center gap-2"><FaSeedling className="text-4xl text-green-400" /><span>GreenRoots</span></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

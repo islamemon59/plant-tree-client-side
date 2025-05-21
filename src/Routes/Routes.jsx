@@ -36,6 +36,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id",
+        hydrateFallbackElement: <Loading></Loading>,
         loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`),
         element: (
           <PrivetRoutes>
@@ -52,7 +53,9 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myPlants",
+        path: "/myPlants/:email",
+        hydrateFallbackElement: <Loading></Loading>,
+        loader: () => fetch("http://localhost:3000/plants"),
         element: (
           <PrivetRoutes>
             <MyPlants></MyPlants>

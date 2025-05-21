@@ -26,7 +26,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/myPlants" className="font-semibold">
+        <NavLink to={`/myPlants/${user?.email}`} className="font-semibold">
           My Plants
         </NavLink>
       </li>
@@ -100,7 +100,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
               </div>
             </div>
             <ul

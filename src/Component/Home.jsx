@@ -13,11 +13,11 @@ const Home = () => {
           <figure>
             <img src="transparent.png" alt="Album" />
           </figure>
-          <div className="card-body text-green-600 mt-6">
-            <h2 className="card-title md:text-5xl text-4xl">
+          <div className="card-body text-green-800 mt-6">
+            <h2 className="card-title font-bold md:text-5xl text-5xl text-center">
               Whispers of the Earth
             </h2>
-            <p className="md:text-xl">
+            <p className="md:text-xl text-center">
               Planting trees is nature’s quiet way of building a louder, greener
               future.
             </p>

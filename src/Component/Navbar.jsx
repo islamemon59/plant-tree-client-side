@@ -4,6 +4,8 @@ import { AuthContext } from "../Context/CreateContex";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { FaSeedling } from "react-icons/fa";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -15,7 +17,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-            <li>
+      <li>
         <NavLink to="/allPlants" className="font-semibold">
           All Plants
         </NavLink>
@@ -26,7 +28,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/myPlants" className="font-semibold">
+        <NavLink to={`/myPlants/${user?.email}`} className="font-semibold">
           My Plants
         </NavLink>
       </li>
@@ -59,7 +61,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-transparent">
+    <div className="navbar bg-transparent py-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className=" lg:hidden p-0">
@@ -86,39 +88,58 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="md:text-4xl font-semibold text-green-600 text-xl md:py-2 flex justify-center items-center gap-2"><FaSeedling className="text-4xl text-green-400" /><span>GreenRoots</span></a>
+        <a className="md:text-4xl font-semibold text-green-600 text-xl md:py-2 flex justify-center items-center gap-2">
+          <FaSeedling className="text-4xl text-green-400" />
+          <span>GreenRoots</span>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
+          <div className="flex justify-center items-center gap-1">
+            <a
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user?.displayName}
+              data-tooltip-place="bottom"
             >
-              <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user?.photoURL}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            </a>
+            <button
+              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
+              onClick={handleLogout}
             >
-              <li className="text-xl font-bold text-center">
-                 Name: {user.displayName}
-              </li>
-              <button className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs mt-4" onClick={handleLogout}>
-                Logout
-              </button>
-            </ul>
+              Logout
+            </button>
           </div>
         ) : (
           <div className="space-x-3 flex md:flex-row flex-col justify-end">
-            <Link className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs" to="/login">Login</Link>
-            <Link className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs" to="/register">Register</Link>
+            <Link
+              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
+              to="/login"
+            >
+              Login
+            </Link>
+            <Link
+              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
+              to="/register"
+            >
+              Register
+            </Link>
           </div>
         )}
       </div>

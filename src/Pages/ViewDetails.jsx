@@ -8,7 +8,7 @@ const ViewDetails = () => {
     console.log(plant);
     return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 to-lime-200 flex items-center justify-center p-6 rounded-2xl">
-      <div className="backdrop-blur-md bg-white/60 border border-green-200 rounded-3xl shadow-2xl w-full max-w-3xl overflow-hidden">
+      <div className="backdrop-blur-md bg-white/60 border border-green-200 rounded-3xl shadow-2xl w-full max-w-3xl overflow-hidden hover:scale-105 transition duration-500">
         <div className="grid md:grid-cols-2">
           {/* Plant Image */}
           <div className="h-80 md:h-full overflow-hidden">

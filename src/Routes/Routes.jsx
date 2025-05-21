@@ -19,6 +19,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        hydrateFallbackElement: <Loading></Loading>,
+        loader: () => fetch("http://localhost:3000/plants"),
         Component: Home,
       },
       {
@@ -38,7 +40,8 @@ export const router = createBrowserRouter([
       {
         path: "/viewDetails/:id",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/plants/${params.id}`),
         element: (
           <PrivetRoutes>
             <ViewDetails></ViewDetails>
@@ -54,9 +57,9 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/myPlants",
+        path: "/myPlants/:email",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: () => fetch("http://localhost:3000/plants"),
+        loader: ({params}) => fetch(`http://localhost:3000/plant/${params.email}`),
         element: (
           <PrivetRoutes>
             <MyPlants></MyPlants>
@@ -66,9 +69,10 @@ export const router = createBrowserRouter([
       {
         path: "/updatePlant/:id",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/plants/${params.id}`),
         Component: UpdatePlant,
-      }
+      },
     ],
   },
   {

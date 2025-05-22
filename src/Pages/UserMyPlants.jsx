@@ -12,10 +12,7 @@ import Info from "../Component/Info";
 import Swal from "sweetalert2";
 
 const UserMyPlants = ({ plant, myPlants, setMyPlants }) => {
-  console.log(plant);
-
   const handleDeletePlant = (id) => {
-    console.log(id);
 
     Swal.fire({
       title: "Are you sure?",

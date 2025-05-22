@@ -5,7 +5,6 @@ import Info from '../Component/Info';
 
 const ViewDetails = () => {
     const plant = useLoaderData()
-    console.log(plant);
     return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 to-lime-200 flex items-center justify-center p-6 rounded-2xl">
       <div className="backdrop-blur-md bg-white/60 border border-green-200 rounded-3xl shadow-2xl w-full max-w-3xl overflow-hidden hover:scale-105 transition duration-500">

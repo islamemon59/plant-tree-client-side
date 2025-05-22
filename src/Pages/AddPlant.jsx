@@ -9,7 +9,6 @@ const AddPlant = () => {
   const { user, plants, setPlants } = use(AuthContext);
   const [nextDate, setNextDate] = useState(new Date());
   const [lastDate, setLastDate] = useState(new Date());
-  console.log(user);
 
   const handleAddPlant = (e) => {
     e.preventDefault();

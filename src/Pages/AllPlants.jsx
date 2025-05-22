@@ -10,12 +10,58 @@ const AllPlants = () => {
   useEffect(() => {
     setPlants(initialPlants);
   }, [initialPlants, setPlants]);
-  console.log(plants);
+
+  const handleAllData = () => {
+    fetch("http://localhost:3000/plants")
+    .then(res => res.json())
+    .then(data => setPlants(data))
+  }
+
+  const handleEasyData = () => {
+    fetch("http://localhost:3000/easy")
+    .then(res => res.json())
+    .then(data => setPlants(data))
+  }
+  const handleModerateData = () => {
+    fetch("http://localhost:3000/moderate")
+    .then(res => res.json())
+    .then(data => setPlants(data))
+  }
+  const handleDifficultData = () => {
+    fetch("http://localhost:3000/difficult")
+    .then(res => res.json())
+    .then(data => setPlants(data))
+  }
+
   return (
     <div>
       <h1 className="text-center md:text-5xl text-3xl font-semibold text-green-800 my-10">
         All Plants Collection Here
       </h1>
+
+      <div className="dropdown">
+        <div tabIndex={0} role="button" className="btn m-1 bg-success">
+          Sorted by
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+        >
+          <li onClick={handleAllData}>
+            <a>All</a>
+          </li>
+          <li onClick={handleEasyData}>
+            <a>Easy</a>
+          </li>
+          <li onClick={handleModerateData}>
+            <a>Moderate</a>
+          </li>
+          <li onClick={handleDifficultData}>
+            <a>Difficult</a>
+          </li>
+        </ul>
+      </div>
+
       <div className="overflow-x-auto py-6">
         <table className="table">
           {/* head */}
@@ -27,6 +73,7 @@ const AllPlants = () => {
               <th>Name</th>
               <th>Category</th>
               <th>Watering Frequency</th>
+              <th>Care Level</th>
               <th>Auction</th>
             </tr>
           </thead>
@@ -50,6 +97,7 @@ const AllPlants = () => {
                   <br />
                 </td>
                 <td>{plant.watering}</td>
+                <td>{plant.careLevel}</td>
                 <th>
                   <Link to={`/viewDetails/${plant._id}`}>
                     {" "}

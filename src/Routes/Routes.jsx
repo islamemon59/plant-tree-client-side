@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loading></Loading>,
-        loader: () => fetch("http://localhost:3000/plants"),
+        loader: () => fetch("http://localhost:3000/plant"),
         Component: Home,
       },
       {

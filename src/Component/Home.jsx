@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import { FaTree, FaRecycle, FaWater, FaWind } from "react-icons/fa";
 import { useLoaderData } from "react-router";
 import HomePlantCard from "../Pages/HomePlantCard";
+import { useEffect } from "react";
+import { themeChange } from "theme-change";
 
 const Home = () => {
   const initialPlants = useLoaderData();
-  const [latestPlants, setLatestPlants] = useState([]);
-  console.log(latestPlants);
-
-  useEffect(() => {
-    setLatestPlants(initialPlants.slice(0, 6));
-  }, [initialPlants]);
+    useEffect(() => {
+      themeChange(false);
+    }, []);
 
   const list = [
     {
@@ -42,7 +41,7 @@ const Home = () => {
         <Banner></Banner>
       </div>
 
-      <section className="my-20">
+      <section className="my-20 p-4">
         <h1 className="text-center text-6xl text-green-800 font-bold py-2">
           New Arrivals
         </h1>
@@ -50,13 +49,13 @@ const Home = () => {
           See latest plants collection
         </p>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 my-20">
-          {latestPlants.map((plant) => (
+          {initialPlants.map((plant) => (
             <HomePlantCard key={plant._id} plant={plant}></HomePlantCard>
           ))}
         </div>
       </section>
 
-      <section className="my-20">
+      <section className="my-20 p-4">
         <div className="card lg:card-side bg-base-100">
           <figure>
             <img
@@ -77,7 +76,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative bg-white overflow-hidden py-20">
+      <section className="relative bg-base-100 overflow-hidden py-20">
         <div className="absolute inset-0 -z-10">
           <div className="absolute w-[600px] h-[600px] bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
         </div>
@@ -109,7 +108,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-base-100">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-green-800">
             Why Plant Trees?

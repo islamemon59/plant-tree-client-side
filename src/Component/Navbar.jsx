@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Context/CreateContex";
 import Swal from "sweetalert2";
@@ -6,10 +6,14 @@ import toast from "react-hot-toast";
 import { FaSeedling } from "react-icons/fa";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import { themeChange } from "theme-change";
 
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
   const navigate = useNavigate();
+  useEffect(() => {
+    themeChange(false);
+  }, []);
   const links = (
     <>
       <li>
@@ -97,6 +101,16 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
+        {/* <select className="gradientselect"data-choose-theme>
+          <option disabled value="">
+            Pick a theme
+          </option>
+          <option value="">Default</option>
+          <option value="light">Light</option>
+          <option value="retro">Retro</option>
+          <option value="dracula">Dracula</option>
+          <option value="cyberpunk">Cyberpunk</option>
+        </select> */}
         {user ? (
           <div className="flex justify-center items-center gap-1">
             <a
@@ -119,12 +133,64 @@ const Navbar = () => {
                 </div>
               </div>
             </a>
-            <button
-              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
+            <div className="flex md:flex-row flex-col justify-center items-center gap-1">
+              <button
+                className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+              <label
+                className="toggle text-base-content mr-2 gradientselect"
+                data-choose-theme
+              >
+                <input
+                  type="checkbox"
+                  value="dark"
+                  className="theme-controller"
+                />
+
+                <svg
+                  aria-label="sun"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    strokeWidth="2"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                  </g>
+                </svg>
+
+                <svg
+                  aria-label="moon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    strokeWidth="2"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                  </g>
+                </svg>
+              </label>
+            </div>
           </div>
         ) : (
           <div className="space-x-3 flex md:flex-row flex-col justify-end">

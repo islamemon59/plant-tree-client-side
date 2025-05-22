@@ -93,8 +93,10 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="md:text-4xl font-semibold text-green-600 text-xl md:py-2 flex justify-center items-center gap-2 px-2">
-          <FaSeedling className="text-4xl text-green-400" />
-          <span className="md:block hidden">GreenRoots</span>
+          <Link className="flex justify-center items-center" to="/">
+            <FaSeedling className="text-4xl text-green-400" />
+            <span className="md:block hidden">GreenRoots</span>
+          </Link>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">

@@ -140,8 +140,26 @@ const Navbar = () => {
               >
                 Logout
               </button>
-              <label
-                className="toggle text-base-content mr-2 gradientselect"
+            </div>
+          </div>
+        ) : (
+          <div className="space-x-3 flex md:flex-row flex-col justify-end">
+            <Link
+              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
+              to="/login"
+            >
+              Login
+            </Link>
+            <Link
+              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
+              to="/register"
+            >
+              Register
+            </Link>
+          </div>
+        )}
+                      <label
+                className="toggle text-base-content ml-1 gradientselect"
                 data-choose-theme
               >
                 <input
@@ -190,24 +208,6 @@ const Navbar = () => {
                   </g>
                 </svg>
               </label>
-            </div>
-          </div>
-        ) : (
-          <div className="space-x-3 flex md:flex-row flex-col justify-end">
-            <Link
-              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
-              to="/login"
-            >
-              Login
-            </Link>
-            <Link
-              className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
-              to="/register"
-            >
-              Register
-            </Link>
-          </div>
-        )}
       </div>
     </div>
   );

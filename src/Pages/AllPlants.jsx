@@ -12,23 +12,23 @@ const AllPlants = () => {
   }, [initialPlants, setPlants]);
 
   const handleAllData = () => {
-    fetch("http://localhost:3000/plants")
+    fetch("https://plant-tree-server.vercel.app/plants")
     .then(res => res.json())
     .then(data => setPlants(data))
   }
 
   const handleEasyData = () => {
-    fetch("http://localhost:3000/easy")
+    fetch("https://plant-tree-server.vercel.app/easy")
     .then(res => res.json())
     .then(data => setPlants(data))
   }
   const handleModerateData = () => {
-    fetch("http://localhost:3000/moderate")
+    fetch("https://plant-tree-server.vercel.app/moderate")
     .then(res => res.json())
     .then(data => setPlants(data))
   }
   const handleDifficultData = () => {
-    fetch("http://localhost:3000/difficult")
+    fetch("https://plant-tree-server.vercel.app/difficult")
     .then(res => res.json())
     .then(data => setPlants(data))
   }

@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loading></Loading>,
-        loader: () => fetch("http://localhost:3000/plant"),
+        loader: () => fetch("https://plant-tree-server.vercel.app/plant"),
         Component: Home,
       },
       {
@@ -34,14 +34,14 @@ export const router = createBrowserRouter([
       {
         path: "/allPlants",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: () => fetch("http://localhost:3000/plants"),
+        loader: () => fetch("https://plant-tree-server.vercel.app/plants"),
         Component: AllPlants,
       },
       {
         path: "/viewDetails/:id",
         hydrateFallbackElement: <Loading></Loading>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/plants/${params.id}`),
+          fetch(`https://plant-tree-server.vercel.app/plants/${params.id}`),
         element: (
           <PrivetRoutes>
             <ViewDetails></ViewDetails>
@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
       {
         path: "/myPlants/:email",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({params}) => fetch(`http://localhost:3000/plant/${params.email}`),
+        loader: ({params}) => fetch(`https://plant-tree-server.vercel.app/plant/${params.email}`),
         element: (
           <PrivetRoutes>
             <MyPlants></MyPlants>
@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
         path: "/updatePlant/:id",
         hydrateFallbackElement: <Loading></Loading>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/plants/${params.id}`),
+          fetch(`https://plant-tree-server.vercel.app/plants/${params.id}`),
         Component: UpdatePlant,
       },
     ],

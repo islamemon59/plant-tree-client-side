@@ -24,7 +24,7 @@ const UserMyPlants = ({ plant, myPlants, setMyPlants }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/plants/${id}`, {
+        fetch(`https://plant-tree-server.vercel.app/plants/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

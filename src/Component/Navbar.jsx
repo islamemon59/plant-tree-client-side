@@ -101,16 +101,6 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {/* <select className="gradientselect"data-choose-theme>
-          <option disabled value="">
-            Pick a theme
-          </option>
-          <option value="">Default</option>
-          <option value="light">Light</option>
-          <option value="retro">Retro</option>
-          <option value="dracula">Dracula</option>
-          <option value="cyberpunk">Cyberpunk</option>
-        </select> */}
         {user ? (
           <div className="flex justify-center items-center gap-1">
             <a

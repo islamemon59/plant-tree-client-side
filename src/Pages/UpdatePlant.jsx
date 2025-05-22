@@ -26,7 +26,7 @@ const UpdatePlant = () => {
     const data = Object.fromEntries(formData.entries());
     const updatedData = { ...data, lastDate, nextDate };
     console.log(updatedData);
-    fetch(`http://localhost:3000/plants/${_id}`, {
+    fetch(`https://plant-tree-server.vercel.app/plants/${_id}`, {
         method: "PUT",
         headers: {
             "Content-Type" : "application/json"

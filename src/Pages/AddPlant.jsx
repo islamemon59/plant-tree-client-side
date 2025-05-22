@@ -20,7 +20,7 @@ const AddPlant = () => {
     const newPlant = { ...newData, nextWateringDate, lastWateredDate };
     console.log(newPlant);
 
-    fetch("http://localhost:3000/plants", {
+    fetch("https://plant-tree-server.vercel.app/plants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

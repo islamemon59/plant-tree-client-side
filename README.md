@@ -1,6 +1,6 @@
 # 🌱 Plant Tree — Nurture Nature Digitally
 
-**Live Website 🌐:** [https://your-plant-site-url.web.app](https://your-plant-site-url.web.app)
+**Live Website 🌐:** [https://plant-trees-with-green-roots.netlify.app/]
 
 Welcome to **Plant Tree**, a beautiful web application where users can **plant, grow, and manage** their own virtual garden. Built with a modern tech stack and powered by Firebase and MongoDB, this app offers a smooth and secure user experience for plant lovers and developers alike.
 

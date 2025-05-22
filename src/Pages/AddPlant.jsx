@@ -47,9 +47,9 @@ const AddPlant = () => {
         Add Your Favorite Plant
       </h1>
       <form onSubmit={handleAddPlant}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Plant Name</label>
+            <label className="label gap-6 text-gray-900">Plant Name</label>
             <input
               type="text"
               className="input w-full"
@@ -58,7 +58,7 @@ const AddPlant = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Description</label>
+            <label className="label gap-6 text-gray-900">Description</label>
             <textarea
               type="text"
               className="input w-full"
@@ -67,7 +67,7 @@ const AddPlant = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Category</label>
+            <label className="label gap-6 text-gray-900">Category</label>
             <select
               className="input input-bordered w-full "
               name="category"
@@ -79,7 +79,7 @@ const AddPlant = () => {
             </select>
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Care Level</label>
+            <label className="label gap-6 text-gray-900">Care Level</label>
             <select
               className="input input-bordered w-full "
               name="careLevel"
@@ -91,7 +91,7 @@ const AddPlant = () => {
             </select>
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Watering Frequency</label>
+            <label className="label gap-6 text-gray-900">Watering Frequency</label>
             <input
               type="text"
               className="input w-full"
@@ -100,7 +100,7 @@ const AddPlant = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Last Watered Date</label>
+            <label className="label gap-6 text-gray-900">Last Watered Date</label>
             <DatePicker
               className="input input-bordered w-full"
               selected={lastDate}
@@ -108,7 +108,7 @@ const AddPlant = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Next Watering Date</label>
+            <label className="label gap-6 text-gray-900">Next Watering Date</label>
             <DatePicker
               className="input input-bordered w-full"
               selected={nextDate}
@@ -116,7 +116,7 @@ const AddPlant = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">Health Status</label>
+            <label className="label gap-6 text-gray-900">Health Status</label>
             <input
               type="text"
               className="input w-full"
@@ -125,7 +125,7 @@ const AddPlant = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">User Email</label>
+            <label className="label gap-6 text-gray-900">User Email</label>
             <input
               value={user.email}
               type="text"
@@ -134,7 +134,7 @@ const AddPlant = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4">
-            <label className="label">User Name</label>
+            <label className="label gap-6 text-gray-900">User Name</label>
             <input
               value={user.displayName}
               type="text"
@@ -144,7 +144,7 @@ const AddPlant = () => {
           </fieldset>
         </div>
         <fieldset className="fieldset bg-green-50 border-base-300 rounded-box border p-4 my-6">
-          <label className="label">Image</label>
+          <label className="label gap-6 text-gray-900">Image</label>
           <input
             type="text"
             className="input w-full"

@@ -18,7 +18,6 @@ const AddPlant = () => {
     const nextWateringDate = nextDate.toLocaleDateString("en-CA");
     const lastWateredDate = lastDate.toLocaleDateString("en-CA");
     const newPlant = { ...newData, nextWateringDate, lastWateredDate };
-    console.log(newPlant);
 
     fetch("https://plant-tree-server.vercel.app/plants", {
       method: "POST",

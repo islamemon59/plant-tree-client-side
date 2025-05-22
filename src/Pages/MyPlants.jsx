@@ -4,7 +4,7 @@ import UserMyPlants from "./UserMyPlants";
 
 const MyPlants = () => {
   const plants = useLoaderData();
-  const [myPlants, setMyPlants] = useState([]);
+  const [myPlants, setMyPlants] = useState(plants);
 
 
   return (
@@ -13,7 +13,7 @@ const MyPlants = () => {
         Your Added All Plants Here
       </h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-6">
-        {plants.map((plant) => (
+        {myPlants.map((plant) => (
           <UserMyPlants
             key={plant._id}
             plant={plant}

@@ -128,7 +128,9 @@ const Navbar = () => {
             <div className="flex md:flex-row flex-col justify-center items-center gap-1">
               <button
                 className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
-                onClick={handleLogout}
+                onClick={() => {
+                  handleLogout(), scrollTo(0, 0);
+                }}
               >
                 Logout
               </button>
@@ -137,12 +139,18 @@ const Navbar = () => {
         ) : (
           <div className="space-x-3 flex md:flex-row flex-col justify-end">
             <Link
+              onClick={() => {
+                scrollTo(0, 0);
+              }}
               className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
               to="/login"
             >
               Login
             </Link>
             <Link
+              onClick={() => {
+                scrollTo(0, 0);
+              }}
               className="btn bg-green-500 hover:bg-green-300 transition duration-500 md:text-[16px] text-xs"
               to="/register"
             >

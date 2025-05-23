@@ -59,7 +59,6 @@ export const router = createBrowserRouter([
       {
         path: "/myPlants/:email",
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({params}) => fetch(`https://plant-tree-server.vercel.app/plant/${params.email}`),
         element: (
           <PrivetRoutes>
             <MyPlants></MyPlants>

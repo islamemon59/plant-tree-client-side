@@ -99,7 +99,7 @@ const AllPlants = () => {
                 <td>{plant.watering}</td>
                 <td>{plant.careLevel}</td>
                 <th>
-                  <Link to={`/viewDetails/${plant._id}`}>
+                  <Link onClick={() => {scrollTo(0, 0)}} to={`/viewDetails/${plant._id}`}>
                     {" "}
                     <button className="btn rounded-full btn-success">
                       Details

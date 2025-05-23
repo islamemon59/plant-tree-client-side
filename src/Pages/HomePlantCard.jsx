@@ -62,7 +62,7 @@ const HomePlantCard = ({ plant }) => {
           <span className="font-medium">{plant.userName}</span> – {plant.email}
         </p>
         <div className="mt-4 flex justify-between">
-          <Link
+          <Link onClick={() => {scrollTo(0, 0)}}
             to={`/viewDetails/${plant._id}`}
             className="btn btn-sm btn-outline btn-success gap-2"
           >

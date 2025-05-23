@@ -106,7 +106,7 @@ const UserMyPlants = ({ plant, myPlants, setMyPlants }) => {
 
         {/* Actions */}
         <div className="mt-4 flex justify-between">
-          <Link
+          <Link onClick={() => {scrollTo(0, 0)}}
             to={`/updatePlant/${plant._id}`}
             className="btn btn-sm btn-outline btn-success gap-2 transition duration-400"
           >

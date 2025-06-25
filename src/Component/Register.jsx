@@ -55,8 +55,6 @@ const Register = () => {
   };
 
     const handleGoogleLogin = () => {
-
-
     signInWithGoogle()
       .then((result) => {
         const currentUser = result.user;

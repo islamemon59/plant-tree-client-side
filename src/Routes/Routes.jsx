@@ -13,6 +13,7 @@ import ViewDetails from "../Pages/ViewDetails";
 import UpdatePlant from "../Pages/UpdatePlant";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import DashboardLayout from "../MainLayout/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -76,13 +77,21 @@ export const router = createBrowserRouter([
       },
       {
         path: "aboutUs",
-        Component: AboutUs
+        Component: AboutUs,
       },
       {
         path: "contact",
-        Component: ContactUs
+        Component: ContactUs,
       },
     ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivetRoutes>
+        <DashboardLayout></DashboardLayout>
+      </PrivetRoutes>
+    ),
   },
   {
     path: "*",

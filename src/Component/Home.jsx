@@ -10,6 +10,7 @@ import {
   FaBookOpen,
   FaTags,
   FaEnvelopeOpenText,
+  FaPenNib,
 } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router";
 import HomePlantCard from "../Pages/HomePlantCard";
@@ -189,8 +190,69 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Latest Blogs Section */}
+      <section className="px-4 max-w-6xl mx-auto py-20">
+        <div className="text-center mb-12">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <FaPenNib className="text-primary text-3xl" />
+            <h2 className="text-4xl font-bold text-primary">
+              Latest Blog Posts
+            </h2>
+          </div>
+          <p className="text-xl text-gray-500">
+            Fresh insights, ideas, and inspiration for your green lifestyle.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Replace with mapped blog cards in real app */}
+          <div className="bg-secondary/40 p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold text-primary mb-2">
+              5 Easy Plants for Beginners
+            </h3>
+            <p className="text-gray-600">
+              Kickstart your gardening journey with these low-maintenance
+              favorites.
+            </p>
+            <Link
+              to="/allPlant"
+              className="text-primary font-medium mt-4 inline-block hover:underline"
+            >
+              Read More →
+            </Link>
+          </div>
+          <div className="bg-secondary/40 p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold text-primary mb-2">
+              Sustainable Gardening Tips
+            </h3>
+            <p className="text-gray-600">
+              Discover how to garden in harmony with the environment.
+            </p>
+            <Link
+              to="/allPlant"
+              className="text-primary font-medium mt-4 inline-block hover:underline"
+            >
+              Read More →
+            </Link>
+          </div>
+          <div className="bg-secondary/40 p-6 rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold text-primary mb-2">
+              The Importance of Native Plants
+            </h3>
+            <p className="text-gray-600">
+              Learn why native plants matter for biodiversity and soil health.
+            </p>
+            <Link
+              to="/allPlant"
+              className="text-primary font-medium mt-4 inline-block hover:underline"
+            >
+              Read More →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter Section */}
-      <section className="bg-secondary py-20 px-6 md:px-12 text-center rounded">
+      <section className="shadow-xl bg-secondary/30 py-20 px-6 md:px-12 text-center rounded">
         <h2 className="text-4xl font-bold text-primary mb-4">
           Stay Updated with Green News
         </h2>

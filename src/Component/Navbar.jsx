@@ -52,7 +52,10 @@ const Navbar = () => {
       </li>
       {user && (
         <li>
-          <NavLink to={`/myPlants/${user?.email}`} className="font-medium text-gray-500">
+          <NavLink
+            to={`/myPlants/${user?.email}`}
+            className="font-medium text-gray-500"
+          >
             My Plants
           </NavLink>
         </li>

@@ -5,7 +5,7 @@ import walkAnimation from "../walkAnimation.json";
 const Loading = () => {
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <Lottie animationData={walkAnimation} />
+            <Lottie style={{width: "100px"}} animationData={walkAnimation} />
         </div>
     );
 };

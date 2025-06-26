@@ -19,6 +19,7 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   const initialPlants = useLoaderData();
+  // console.log(initialPlants);
 
   useEffect(() => {
     window.scrollTo(0, 0);

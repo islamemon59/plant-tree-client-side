@@ -42,7 +42,7 @@ const AddPlant = () => {
 
   return (
     <div>
-      <h1 className="text-center md:text-5xl text-3xl font-semibold text-green-800 my-10">
+      <h1 className="text-center md:text-5xl text-3xl font-semibold text-primary my-10">
         Add Your Favorite Plant
       </h1>
       <form onSubmit={handleAddPlant}>

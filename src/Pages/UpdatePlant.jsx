@@ -50,7 +50,7 @@ const UpdatePlant = () => {
 
   return (
     <div>
-      <h1 className="text-center text-5xl font-bold text-green-800 py-6">
+      <h1 className="text-center text-5xl font-bold text-primary py-6">
         Update Your Plant Section
       </h1>
       <form onSubmit={handleUpdatePlant}>

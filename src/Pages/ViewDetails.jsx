@@ -21,7 +21,7 @@ const ViewDetails = () => {
           {/* Details */}
           <div className="p-6 flex flex-col justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-green-700 flex items-center gap-2">
+              <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
                 <FaSeedling className="text-green-500" /> {plant.name}
               </h1>
               <p className="text-gray-700 mt-2 italic">{plant.description}</p>

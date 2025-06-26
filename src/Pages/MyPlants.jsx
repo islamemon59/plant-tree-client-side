@@ -23,7 +23,7 @@ const MyPlants = () => {
         </div>
       ) : (
         <div>
-          <h1 className="text-center text-6xl font-bold text-green-800 py-6 mb-6">
+          <h1 className="text-center text-6xl font-bold text-primary py-6 mb-6">
             Your Added All Plants Here
           </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-6">

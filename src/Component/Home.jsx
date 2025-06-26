@@ -1,74 +1,92 @@
 // import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
-import { FaTree, FaRecycle, FaWater, FaWind } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import {
+  FaTree,
+  FaRecycle,
+  FaWater,
+  FaWind,
+  FaLeaf,
+  FaStar,
+  FaBookOpen,
+  FaTags,
+  FaEnvelopeOpenText,
+} from "react-icons/fa";
+import { Link, useLoaderData } from "react-router";
 import HomePlantCard from "../Pages/HomePlantCard";
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
 
 const Home = () => {
   const initialPlants = useLoaderData();
-    useEffect(() => {
-      themeChange(false);
-    }, []);
 
-  const list = [
+  useEffect(() => {
+    themeChange(false);
+  }, []);
+
+  const benefits = [
     {
-      icon: <FaTree className="text-green-700 text-4xl mx-auto mb-4" />,
+      icon: <FaTree className="text-primary text-4xl mx-auto mb-4" />,
       title: "Clean Air",
       description: "Trees absorb pollutants and provide us with fresh oxygen.",
     },
     {
-      icon: <FaRecycle className="text-green-700 text-4xl mx-auto mb-4" />,
+      icon: <FaRecycle className="text-primary text-4xl mx-auto mb-4" />,
       title: "Reduce Waste",
       description: "Trees help manage waste naturally by cycling nutrients.",
     },
     {
-      icon: <FaWater className="text-green-700 text-4xl mx-auto mb-4" />,
+      icon: <FaWater className="text-primary text-4xl mx-auto mb-4" />,
       title: "Water Filtration",
       description: "They filter rainwater and protect our waterways.",
     },
     {
-      icon: <FaWind className="text-green-700 text-4xl mx-auto mb-4" />,
+      icon: <FaWind className="text-primary text-4xl mx-auto mb-4" />,
       title: "Climate Balance",
       description: "Trees help regulate climate and reduce carbon footprint.",
     },
   ];
 
   return (
-    <div>
-      <div className="py-4">
-        <Banner></Banner>
-      </div>
+    <div className="space-y-24 mt-28">
+      {/* Banner */}
+      <Banner />
 
-      <section className="my-20 p-4">
-        <h1 className="text-center text-6xl text-green-800 font-bold py-2">
-          New Arrivals
-        </h1>
-        <p className="text-center text-xl text-green-700">
-          See latest plants collection
-        </p>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 my-20">
+      {/* New Arrivals */}
+      <section className="px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <FaLeaf className="text-primary text-3xl" />
+            <h1 className="text-4xl md:text-5xl font-extrabold text-primary">
+              New Arrivals
+            </h1>
+          </div>
+          <p className="text-xl">
+            Discover the latest additions to our green family
+          </p>
+          <div className="mt-4 h-1 w-24 bg-primary mx-auto rounded-full"></div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {initialPlants.map((plant) => (
-            <HomePlantCard key={plant._id} plant={plant}></HomePlantCard>
+            <HomePlantCard key={plant._id} plant={plant} />
           ))}
         </div>
       </section>
 
-      <section className="my-20 p-4">
-        <div className="card lg:card-side bg-base-100">
+      {/* Highlight Section */}
+      <section className="px-4 max-w-6xl mx-auto">
+        <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img
-              className="transition duration-600 hover:scale-105"
               src="transparent.png"
-              alt="Album"
+              alt="Nature Quote"
+              className="transition duration-600 hover:scale-105"
             />
           </figure>
-          <div className="card-body text-green-800 mt-6">
-            <h2 className="card-title font-bold md:text-5xl text-5xl text-center">
+          <div className="card-body mt-6">
+            <h2 className="card-title text-primary font-bold text-4xl md:text-5xl text-center">
               Whispers of the Earth
             </h2>
-            <p className="md:text-xl text-center">
+            <p className="text-xl text-center">
               Planting trees is nature’s quiet way of building a louder, greener
               future.
             </p>
@@ -76,26 +94,30 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative bg-base-100 overflow-hidden py-20">
+      {/* Mission Section */}
+      <section className="relative bg-base-100 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute w-[600px] h-[600px] bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
         </div>
         <div className="container mx-auto px-6 md:px-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           <div className="text-center lg:text-left max-w-xl">
-            <h1 className="text-5xl font-bold text-green-800 leading-tight flex items-center justify-center lg:justify-start gap-3">
-              <FaTree className="text-green-600 text-6xl" />
+            <h1 className="text-5xl font-bold text-primary leading-tight flex items-center gap-3">
+              <FaTree className="text-green-600 text-4xl md:text-5xl" />
               Let's Make Earth Greener
             </h1>
-            <p className="mt-6 text-green-700 text-lg">
+            <p className="mt-6 text-xl">
               Every tree you plant brings us closer to a sustainable future.
-              Join the movement to restore balance to our environment—one tree
-              at a time.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-              <button className="btn btn-success btn-lg">Start Planting</button>
-              <button className="btn btn-outline btn-success btn-lg">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <Link to="/addPlant" className="btn btn-primary btn-lg">
+                Start Planting
+              </Link>
+              <Link
+                to="/aboutUs"
+                className="btn btn-outline btn-primary btn-lg"
+              >
                 Our Mission
-              </button>
+              </Link>
             </div>
           </div>
           <div className="max-w-md w-full">
@@ -108,26 +130,82 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-base-100">
+      {/* Benefits */}
+      <section className="bg-base-100">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-green-800">
-            Why Plant Trees?
-          </h2>
-          <p className="mt-4 text-green-600">
+          <h2 className="text-4xl font-bold text-primary">Why Plant Trees?</h2>
+          <p className="text-xl mt-4">
             Trees are essential to life on Earth. Here’s why they matter.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-16">
-          {list.map((item, index) => (
+          {benefits.map((item, index) => (
             <div
               key={index}
-              className="card bg-green-50 p-6 text-center shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:bg-green-100"
+              className="card bg-secondary p-6 text-center shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:bg-green-100"
             >
               {item.icon}
-              <h3 className="font-bold text-lg text-green-800">{item.title}</h3>
-              <p className="text-green-700">{item.description}</p>
+              <h3 className="font-bold text-lg text-primary">{item.title}</h3>
+              <p className="text-base-content">{item.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Featured Section */}
+      <section className="px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="flex justify-center items-center gap-2 mb-4">
+            <FaStar className="text-yellow-500 text-3xl" />
+            <h2 className="text-4xl font-bold text-primary">
+              Top Rated Plants
+            </h2>
+          </div>
+          <p className="text-xl">
+            Our community’s favorite selections, curated with care.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {initialPlants.slice(0, 4).map((plant) => (
+            <HomePlantCard key={plant._id} plant={plant} />
+          ))}
+        </div>
+      </section>
+
+      {/* Blog/Offer Section */}
+      <section className="px-4 max-w-6xl mx-auto bg-secondary rounded-xl py-16 shadow">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="space-y-4 text-center md:text-left">
+            <h2 className="text-4xl font-bold text-primary flex items-center gap-2">
+              <FaBookOpen /> Green Tips & Articles
+            </h2>
+            <p className="text-xl text-primary">
+              Explore our latest blog articles and gardening guides.
+            </p>
+          </div>
+          <Link to="/allPlants" className="btn btn-outline btn-primary btn-lg">
+            Read Blog
+          </Link>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="bg-secondary py-20 px-6 md:px-12 text-center rounded">
+        <h2 className="text-4xl font-bold text-primary mb-4">
+          Stay Updated with Green News
+        </h2>
+        <p className="text-xl mb-6">
+          Get eco tips, new arrivals & updates delivered to your inbox.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="input input-bordered w-full"
+          />
+          <Link to="/login" className="btn btn-primary">
+            <FaEnvelopeOpenText className="mr-2" /> Subscribe
+          </Link>
         </div>
       </section>
     </div>

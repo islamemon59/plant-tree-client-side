@@ -1,18 +1,12 @@
 import React from "react";
-import {
-  FaCalendarAlt,
-  FaInfoCircle,
-  FaLeaf,
-  FaSeedling,
-  FaTint,
-} from "react-icons/fa";
-import Info from "../Component/Info";
+import { FaInfoCircle, FaSeedling } from "react-icons/fa";
 import { Link } from "react-router";
 
 const HomePlantCard = ({ plant }) => {
   return (
-    <div className="max-w-sm w-full bg-white border border-green-200 shadow-lg rounded-2xl overflow-hidden transition-transform duration-600 hover:scale-105 hover:shadow-xl">
-      <div className="h-48 overflow-hidden">
+    <div className="flex flex-col h-full bg-base-100 border border-green-200 shadow-md rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+      {/* Image */}
+      <div className="h-48 w-full overflow-hidden">
         <img
           src={plant.photo}
           alt={plant.name}
@@ -20,54 +14,26 @@ const HomePlantCard = ({ plant }) => {
         />
       </div>
 
-      <div className="p-5 space-y-2">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-green-700 flex items-center gap-2">
-            <FaSeedling className="text-green-500" />
-            {plant.name}
-          </h2>
-          <span className="badge badge-success text-white">{plant.health}</span>
-        </div>
+      {/* Content */}
+      <div className="flex flex-col justify-between flex-grow p-4 space-y-2">
+        {/* Title */}
+        <h2 className="text-xl font-semibold text-primary flex items-center gap-2">
+          <FaSeedling className="text-green-500" />
+          {plant.name}
+        </h2>
 
-        <p className="text-gray-600 text-sm italic">{plant.description}</p>
+        {/* Description */}
+        <p className="text-sm text-base-content line-clamp-3">{plant.description}</p>
 
-        <div className="text-sm text-gray-700 space-y-1">
-          <Info
-            label="Category"
-            icon={<FaLeaf className="text-green-400" />}
-            value={plant.category}
-          />
-          <Info
-            label="Care"
-            icon={<FaSeedling className="text-yellow-500" />}
-            value={plant.careLevel}
-          />
-          <Info
-            label="Watering"
-            icon={<FaTint className="text-blue-400" />}
-            value={`Every ${plant.watering}`}
-          />
-          <Info
-            label="Last Watered"
-            icon={<FaCalendarAlt className="text-purple-400" />}
-            value={plant.lastWateredDate}
-          />
-          <Info
-            label="Next Watering"
-            icon={<FaCalendarAlt className="text-orange-400" />}
-            value={plant.nextWateringDate}
-          />
-        </div>
-        <p className="text-xs text-gray-500 mt-2">
-          <span className="font-medium">{plant.userName}</span> – {plant.email}
-        </p>
-        <div className="mt-4 flex justify-between">
-          <Link onClick={() => {scrollTo(0, 0)}}
+        {/* Button */}
+        <div className="pt-2 mt-auto">
+          <Link
             to={`/viewDetails/${plant._id}`}
-            className="btn btn-sm btn-outline btn-success gap-2"
+            onClick={() => scrollTo(0, 0)}
+            className="btn btn-sm btn-outline btn-primary w-full gap-2"
           >
             <FaInfoCircle />
-            Details
+            See More
           </Link>
         </div>
       </div>

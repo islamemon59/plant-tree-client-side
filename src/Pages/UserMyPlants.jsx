@@ -60,7 +60,7 @@ const UserMyPlants = ({ plant, myPlants, setMyPlants }) => {
       <div className="p-5 space-y-2">
         {/* Title & Health */}
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-green-700 flex items-center gap-2">
+          <h2 className="text-xl font-bold text-primary flex items-center gap-2">
             <FaSeedling className="text-green-500" />
             {plant.name}
           </h2>

@@ -37,13 +37,8 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/login" className="font-semibold">
-          Login
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/register" className="font-semibold">
-          Register
+        <NavLink to="/aboutUs" className="font-semibold">
+          About us
         </NavLink>
       </li>
     </>

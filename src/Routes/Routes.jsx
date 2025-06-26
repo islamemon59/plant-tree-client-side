@@ -11,6 +11,7 @@ import AllPlants from "../Pages/AllPlants";
 import Loading from "../Component/Loading";
 import ViewDetails from "../Pages/ViewDetails";
 import UpdatePlant from "../Pages/UpdatePlant";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
           fetch(`https://plant-tree-server.vercel.app/plants/${params.id}`),
         Component: UpdatePlant,
       },
+      {
+        path: "aboutUs",
+        Component: AboutUs
+      }
     ],
   },
   {

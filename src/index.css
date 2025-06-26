@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Underdog&display=swap');
 @import "tailwindcss";
-@plugin "daisyui";
 @plugin "daisyui" {
-  themes: cupcake --default, coffee, retro, dracula;
+  themes: corporate --default, coffee, retro, dracula;
+}
+@plugin "daisyui/theme" {
+  default: true; 
+  --color-primary: #00cc44;
+  --color-primary-content: #003300;
+  --color-secondary: #e6ffe6;
 }
 
 * {

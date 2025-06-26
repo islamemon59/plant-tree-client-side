@@ -23,7 +23,7 @@ const HomePlantCard = ({ plant }) => {
         </h2>
 
         {/* Description */}
-        <p className="text-sm text-base-content line-clamp-3">{plant.description}</p>
+        <p className="text-sm text-gray-500 line-clamp-3">{plant.description}</p>
 
         {/* Button */}
         <div className="pt-2 mt-auto">

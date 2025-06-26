@@ -35,14 +35,38 @@ const Navbar = () => {
   // Navigation Links
   const navLinks = (
     <>
-      <li><NavLink to="/" end className="font-medium">Home</NavLink></li>
-      <li><NavLink to="/allPlants" className="font-medium">All Plants</NavLink></li>
-      <li><NavLink to="/addPlant" className="font-medium">Add Plant</NavLink></li>
+      <li>
+        <NavLink to="/" end className="font-medium text-gray-500">
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/allPlants" className="font-medium text-gray-500">
+          All Plants
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/addPlant" className="font-medium text-gray-500">
+          Add Plant
+        </NavLink>
+      </li>
       {user && (
-        <li><NavLink to={`/myPlants/${user?.email}`} className="font-medium">My Plants</NavLink></li>
+        <li>
+          <NavLink to={`/myPlants/${user?.email}`} className="font-medium text-gray-500">
+            My Plants
+          </NavLink>
+        </li>
       )}
-      <li><NavLink to="/aboutUs" className="font-medium">About Us</NavLink></li>
-      <li><NavLink to="/contact" className="font-medium">Contact</NavLink></li>
+      <li>
+        <NavLink to="/aboutUs" className="font-medium text-gray-500">
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/contact" className="font-medium text-gray-500">
+          Contact
+        </NavLink>
+      </li>
     </>
   );
 
@@ -54,10 +78,19 @@ const Navbar = () => {
           {/* Mobile Dropdown */}
           <div className="dropdown lg:hidden">
             <div tabIndex={0} role="button" className="btn btn-ghost">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </div>
             <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -66,7 +99,10 @@ const Navbar = () => {
           </div>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 text-primary text-2xl font-bold">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-primary text-2xl font-bold"
+          >
             <FaSeedling className="text-3xl" />
             <span className="hidden md:inline">GreenRoots</span>
           </Link>
@@ -109,7 +145,10 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center gap-2">
               {/* Avatar */}
-              <div data-tooltip-id="user-tooltip" data-tooltip-content={user?.displayName}>
+              <div
+                data-tooltip-id="user-tooltip"
+                data-tooltip-content={user?.displayName}
+              >
                 <div className="dropdown dropdown-end">
                   <div tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
@@ -119,16 +158,25 @@ const Navbar = () => {
                 </div>
               </div>
               {/* Logout */}
-              <button onClick={handleLogout} className="btn btn-primary btn-sm text-primary-content">
+              <button
+                onClick={handleLogout}
+                className="btn btn-primary btn-sm text-primary-content"
+              >
                 Logout
               </button>
             </div>
           ) : (
             <div className="flex gap-2">
-              <Link to="/login" className="btn btn-primary btn-sm text-primary-content">
+              <Link
+                to="/login"
+                className="btn btn-primary btn-sm text-primary-content"
+              >
                 Login
               </Link>
-              <Link to="/register" className="btn btn-primary btn-sm text-primary-content">
+              <Link
+                to="/register"
+                className="btn btn-primary btn-sm text-primary-content"
+              >
                 Register
               </Link>
             </div>

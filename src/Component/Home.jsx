@@ -60,7 +60,7 @@ const Home = () => {
               New Arrivals
             </h1>
           </div>
-          <p className="text-xl">
+          <p className="text-xl text-gray-500">
             Discover the latest additions to our green family
           </p>
           <div className="mt-4 h-1 w-24 bg-primary mx-auto rounded-full"></div>
@@ -86,7 +86,7 @@ const Home = () => {
             <h2 className="card-title text-primary font-bold text-4xl md:text-5xl text-center">
               Whispers of the Earth
             </h2>
-            <p className="text-xl text-center">
+            <p className="text-xl text-center text-gray-500">
               Planting trees is nature’s quiet way of building a louder, greener
               future.
             </p>
@@ -105,7 +105,7 @@ const Home = () => {
               <FaTree className="text-green-600 text-4xl md:text-5xl" />
               Let's Make Earth Greener
             </h1>
-            <p className="mt-6 text-xl">
+            <p className="mt-6 text-xl text-gray-500">
               Every tree you plant brings us closer to a sustainable future.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -134,7 +134,7 @@ const Home = () => {
       <section className="bg-base-100">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary">Why Plant Trees?</h2>
-          <p className="text-xl mt-4">
+          <p className="text-xl mt-4 text-gray-500">
             Trees are essential to life on Earth. Here’s why they matter.
           </p>
         </div>
@@ -142,7 +142,7 @@ const Home = () => {
           {benefits.map((item, index) => (
             <div
               key={index}
-              className="card bg-secondary p-6 text-center shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:bg-green-100"
+              className="card bg-secondary p-6 text-center shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl"
             >
               {item.icon}
               <h3 className="font-bold text-lg text-primary">{item.title}</h3>
@@ -161,7 +161,7 @@ const Home = () => {
               Top Rated Plants
             </h2>
           </div>
-          <p className="text-xl">
+          <p className="text-xl text-gray-500">
             Our community’s favorite selections, curated with care.
           </p>
         </div>
@@ -194,14 +194,14 @@ const Home = () => {
         <h2 className="text-4xl font-bold text-primary mb-4">
           Stay Updated with Green News
         </h2>
-        <p className="text-xl mb-6">
+        <p className="text-xl mb-6 text-gray-500">
           Get eco tips, new arrivals & updates delivered to your inbox.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto">
           <input
             type="email"
             placeholder="Enter your email"
-            className="input input-bordered w-full"
+            className="input input-bordered w-full bg-white placeholder:text-gray-500"
           />
           <Link to="/login" className="btn btn-primary">
             <FaEnvelopeOpenText className="mr-2" /> Subscribe

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Underdog&display=swap');
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: corporate --default, coffee, retro, dracula;
+  themes: corporate --default, luxury;
 }
 @plugin "daisyui/theme" {
   default: true; 
@@ -16,4 +16,5 @@
 
 li a.active {
     color: green;
+    background-color: #e6ffe6;
 }

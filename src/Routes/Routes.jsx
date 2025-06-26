@@ -12,6 +12,7 @@ import Loading from "../Component/Loading";
 import ViewDetails from "../Pages/ViewDetails";
 import UpdatePlant from "../Pages/UpdatePlant";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -76,7 +77,11 @@ export const router = createBrowserRouter([
       {
         path: "aboutUs",
         Component: AboutUs
-      }
+      },
+      {
+        path: "contact",
+        Component: ContactUs
+      },
     ],
   },
   {

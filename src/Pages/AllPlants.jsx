@@ -36,7 +36,7 @@ const AllPlants = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-10 max-w-7xl mx-auto mt-28">
+    <div className="min-h-screen px-4 py-10 max-w-7xl mx-auto mt-20">
       <div className="text-center mb-10">
         <h1 className="text-4xl md:text-5xl font-bold text-primary">
           All Plants Collection Here

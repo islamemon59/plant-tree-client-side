@@ -51,7 +51,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-120px)] flex justify-center items-center flex-col">
+    <div className="min-h-[calc(100vh-80px)] flex justify-center items-center flex-col">
       <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="card-body space-y-2">
           <h1 className="text-3xl text-center font-bold">Login now!</h1>

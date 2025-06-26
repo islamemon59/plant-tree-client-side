@@ -14,7 +14,7 @@ import {
 
 export default function ContactUs() {
   return (
-    <section className="py-16 px-4 md:px-16 text-gray-800 mt-28">
+    <section className="py-16 px-4 md:px-16 text-gray-800 mt-20">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <h2 className="text-4xl font-bold text-center text-primary">

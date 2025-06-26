@@ -13,7 +13,7 @@ const ViewDetails = () => {
   const plant = useLoaderData();
 
   return (
-    <div className="min-h-screen px-4 py-10 mt-28">
+    <div className="min-h-screen px-4 py-10 mt-20">
       {/* Main Plant Card */}
       <div className="w-full max-w-5xl mx-auto bg-secondary/20 border border-green-200 rounded-3xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 transform transition-transform duration-300 hover:scale-[1.01]">
         {/* Plant Image */}

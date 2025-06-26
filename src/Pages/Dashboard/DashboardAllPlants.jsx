@@ -108,7 +108,7 @@ const DashboardAllPlants = () => {
                   <td>{plant.careLevel}</td>
                   <td>
                     <Link
-                      to={`/dashboard/viewDetails/${plant._id}`}
+                      to={`/viewDetails/${plant._id}`}
                       className="btn btn-sm btn-outline text-primary flex items-center gap-1"
                     >
                       <FcViewDetails /> View

@@ -85,7 +85,7 @@ const Dashboard = () => {
           {/* Close button ONLY on mobile when sidebar is open */}
           <button
             onClick={toggleSidebar}
-            className="md:hidden text-gray-900 dark:text-gray-100 focus:outline-none"
+            className="md:hidden text-primary dark:text-gray-100 focus:outline-none"
             aria-label="Close sidebar"
           >
             <FaTimes size={24} />
@@ -153,7 +153,7 @@ const Dashboard = () => {
         {!sidebarOpen && (
           <button
             onClick={toggleSidebar}
-            className="fixed top-4 right-4 z-50 md:hidden p-2 rounded-md bg-primary text-primary-content shadow-md focus:outline-none"
+            className="fixed top-4 right-4 z-50 md:hidden p-1 rounded-md bg-transparent text-primary focus:outline-none"
             aria-label="Open sidebar"
           >
             <FaBars size={24} />

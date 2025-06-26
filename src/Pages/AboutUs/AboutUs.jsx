@@ -1,6 +1,13 @@
 // AboutUs.jsx
 
-import { FaLeaf, FaHandsHelping, FaGlobeAsia, FaUsers, FaRecycle, FaSeedling, FaTree, FaHeart, FaBookOpen, FaBolt, FaChartLine } from "react-icons/fa";
+import {
+  FaLeaf,
+  FaHandsHelping,
+  FaGlobeAsia,
+  FaRecycle,
+  FaBolt,
+  FaChartLine,
+} from "react-icons/fa";
 import { Link } from "react-router";
 
 export default function AboutUs() {
@@ -63,16 +70,21 @@ export default function AboutUs() {
 
         {/* New: Our Core Initiatives (Non-card Style) */}
         <div className="mt-20">
-          <h3 className="text-3xl font-bold text-primary text-center mb-10">Our Core Initiatives</h3>
+          <h3 className="text-3xl font-bold text-primary text-center mb-10">
+            Our Core Initiatives
+          </h3>
           <ul className="space-y-10 max-w-4xl mx-auto">
             <li className="flex items-start gap-4">
               <span className="text-primary text-3xl">
                 <FaBolt />
               </span>
               <div>
-                <h4 className="text-xl font-semibold text-primary mb-1">Clean Energy Advocacy</h4>
+                <h4 className="text-xl font-semibold text-primary mb-1">
+                  Clean Energy Advocacy
+                </h4>
                 <p className="text-gray-500">
-                  We collaborate with local innovators to promote sustainable energy use and reduce carbon footprints.
+                  We collaborate with local innovators to promote sustainable
+                  energy use and reduce carbon footprints.
                 </p>
               </div>
             </li>
@@ -81,9 +93,12 @@ export default function AboutUs() {
                 <FaRecycle />
               </span>
               <div>
-                <h4 className="text-xl font-semibold text-primary mb-1">Eco Recycling Drives</h4>
+                <h4 className="text-xl font-semibold text-primary mb-1">
+                  Eco Recycling Drives
+                </h4>
                 <p className="text-gray-500">
-                  Our campaigns encourage communities to adopt recycling and reduce single-use plastic dependency.
+                  Our campaigns encourage communities to adopt recycling and
+                  reduce single-use plastic dependency.
                 </p>
               </div>
             </li>
@@ -92,9 +107,12 @@ export default function AboutUs() {
                 <FaChartLine />
               </span>
               <div>
-                <h4 className="text-xl font-semibold text-primary mb-1">Impact Analytics</h4>
+                <h4 className="text-xl font-semibold text-primary mb-1">
+                  Impact Analytics
+                </h4>
                 <p className="text-gray-500">
-                  We track every tree, campaign, and partner impact to ensure real, measurable progress.
+                  We track every tree, campaign, and partner impact to ensure
+                  real, measurable progress.
                 </p>
               </div>
             </li>
@@ -112,7 +130,7 @@ export default function AboutUs() {
             toward healing the planet.
           </p>
           <Link
-            to="/addPlant"
+            to="/dashboard/addPlant"
             className="btn btn-primary text-primary-content px-6 py-3 shadow hover:scale-105 transition"
           >
             Become a Volunteer

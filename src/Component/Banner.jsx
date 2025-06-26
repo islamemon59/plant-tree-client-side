@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { motion } from "framer-motion"; // 👈 import motion
 
 const heroSlides = [
   {
@@ -45,10 +47,22 @@ const HeroSection = () => {
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="bg-black/50 w-full h-full flex flex-col items-center justify-center text-center text-white px-6">
-                <h2 className="text-3xl md:text-5xl font-bold mb-3">
+                <motion.h2
+                  className="text-3xl md:text-5xl font-bold mb-3"
+                  initial={{ opacity: 0, y: -30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 }}
+                >
                   {slide.title}
-                </h2>
-                <p className="text-lg md:text-xl max-w-2xl">{slide.subtitle}</p>
+                </motion.h2>
+                <motion.p
+                  className="text-lg md:text-xl max-w-2xl"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.2 }}
+                >
+                  {slide.subtitle}
+                </motion.p>
               </div>
             </div>
           </SwiperSlide>

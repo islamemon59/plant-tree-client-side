@@ -45,18 +45,10 @@ const Navbar = () => {
           All Plants
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/addPlant" className="font-medium text-gray-500">
-          Add Plant
-        </NavLink>
-      </li>
       {user && (
         <li>
-          <NavLink
-            to={`/myPlants/${user?.email}`}
-            className="font-medium text-gray-500"
-          >
-            My Plants
+          <NavLink to="/dashboard" className="font-medium text-gray-500">
+            Dashboard
           </NavLink>
         </li>
       )}

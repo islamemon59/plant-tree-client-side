@@ -10,7 +10,6 @@ const AddPlant = () => {
   const [nextDate, setNextDate] = useState(new Date());
   const [lastDate, setLastDate] = useState(new Date());
 
-
   const handleAddPlant = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -44,7 +43,7 @@ const AddPlant = () => {
   };
 
   return (
-    <div className="mt-28 px-4 max-w-5xl mx-auto">
+    <div className="mt-10 px-4 max-w-5xl mx-auto">
       <h1 className="text-center text-4xl md:text-5xl font-bold text-primary mb-12">
         Add Your Favorite Plant
       </h1>

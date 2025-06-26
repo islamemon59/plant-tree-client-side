@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router";
-import { FaFacebookF, FaTwitter, FaInstagram, FaSeedling } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaSeedling,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -37,8 +42,8 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/plants" className="hover:text-green-600 transition">
-                Our Plants
+              <Link to="/allPlants" className="hover:text-green-600 transition">
+                All Plants
               </Link>
             </li>
             <li>

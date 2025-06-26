@@ -7,7 +7,7 @@ const PrivetRoutes = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    return <Loading></Loading>
+    return <Loading></Loading>;
   }
 
   if (!user) {

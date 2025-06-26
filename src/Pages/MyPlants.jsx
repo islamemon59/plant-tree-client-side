@@ -1,30 +1,64 @@
 import React, { useEffect, useState } from "react";
-import UserMyPlants from "./UserMyPlants";
+import { useNavigate } from "react-router";
 import { AuthContext } from "../Context/CreateContex";
 import Lottie from "lottie-react";
 import monkey from "../monkey.json";
 import Loading from "../Component/Loading";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyPlants = () => {
   const { user } = React.useContext(AuthContext);
   const [myPlants, setMyPlants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://plant-tree-server.vercel.app/plant/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setMyPlants(data)
-        setLoading(false)
+        setMyPlants(data);
+        setLoading(false);
       });
   }, [user]);
 
-  if(loading){
-    return <Loading></Loading>
+  // 🔴 DELETE plant
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://plant-tree-server.vercel.app/plants/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setMyPlants(myPlants.filter((plant) => plant._id !== id));
+              Swal.fire("Deleted!", "Your plant has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
+
+  // ✏️ EDIT plant
+  const handleEdit = (id) => {
+    navigate(`/dashboard/updatePlant/${id}`);
+  };
+
+  if (loading) {
+    return <Loading />;
   }
 
   return (
-    <div className="mt-28 px-4 max-w-7xl mx-auto">
+    <div className="mt-10 px-4 max-w-7xl mx-auto">
       {myPlants.length === 0 ? (
         <div className="text-center space-y-6">
           <h1 className="text-3xl md:text-5xl font-semibold text-primary">
@@ -45,15 +79,55 @@ const MyPlants = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {myPlants.map((plant) => (
-              <UserMyPlants
-                key={plant._id}
-                plant={plant}
-                myPlants={myPlants}
-                setMyPlants={setMyPlants}
-              />
-            ))}
+          <div className="overflow-x-auto">
+            <table className="table w-full">
+              <thead>
+                <tr className="bg-secondary text-gray-900 dark:text-white">
+                  <th>No</th>
+                  <th>Photo</th>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Watering</th>
+                  <th>Care Level</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {myPlants.map((plant, index) => (
+                  <tr
+                    key={plant._id}
+                    className="hover:bg-base-200 transition duration-300"
+                  >
+                    <td>{index + 1}</td>
+                    <td>
+                      <img
+                        src={plant.photo}
+                        alt={plant.name}
+                        className="w-16 h-16 object-cover rounded"
+                      />
+                    </td>
+                    <td>{plant.name}</td>
+                    <td>{plant.category}</td>
+                    <td>{plant.watering}</td>
+                    <td>{plant.careLevel}</td>
+                    <td className="flex gap-2">
+                      <button
+                        onClick={() => handleEdit(plant._id)}
+                        className="btn btn-sm btn-outline btn-info"
+                      >
+                        <FaEdit />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(plant._id)}
+                        className="btn btn-sm btn-outline btn-error"
+                      >
+                        <FaTrash />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       )}

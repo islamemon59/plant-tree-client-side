@@ -1,16 +1,16 @@
-import React, { use } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router';
-import { AuthContext } from '../Context/CreateContex';
-import Swal from 'sweetalert2';
+import React, { use } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../Context/CreateContex";
+import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { user, setUser, createUser, signInWithGoogle, updateUserProfile } =
+    use(AuthContext);
 
-    const {user, setUser, createUser, signInWithGoogle, updateUserProfile} = use(AuthContext)
-
-    const location = useLocation()
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -34,19 +34,18 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const currentUser = result.user;
-                Swal.fire({
-                  title: "SignUp Successful",
-                  icon: "success",
-                  draggable: true
-                });
+        Swal.fire({
+          title: "SignUp Successful",
+          icon: "success",
+          draggable: true,
+        });
         setUser(currentUser);
-        navigate(location?.state || "/")
-        updateUserProfile({displayName: name, photoURL: photo})
-        .then(()=> {
-            setUser({...user, displayName: name, photoURL: photo});
-        }).catch(() =>{
-            
-        })
+        navigate(location?.state || "/");
+        updateUserProfile({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch(() => {});
         console.log(currentUser);
       })
       .catch((error) => {
@@ -54,24 +53,24 @@ const Register = () => {
       });
   };
 
-    const handleGoogleLogin = () => {
+  const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((result) => {
         const currentUser = result.user;
         Swal.fire({
           title: "SignUp Successful",
           icon: "success",
-          draggable: true
+          draggable: true,
         });
         setUser(currentUser);
-        navigate(location?.state || "/")
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         toast.error(`${error.message}`);
       });
   };
 
-    return (
+  return (
     <div className="min-h-[calc(100vh-120px)] flex justify-center items-center flex-col">
       <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="card-body space-y-2">
@@ -113,13 +112,14 @@ const Register = () => {
               Register
             </button>
             <div>
-        <button type="button"
-          onClick={handleGoogleLogin}
-          className="btn btn-outline mt-4 w-full"
-        >
-          <FcGoogle size={24} /> Signup with Google
-        </button>
-      </div>
+              <button
+                type="button"
+                onClick={handleGoogleLogin}
+                className="btn btn-outline mt-4 w-full"
+              >
+                <FcGoogle size={24} /> Signup with Google
+              </button>
+            </div>
             <p className="font-semibold">
               Already have an account{" "}
               <Link className="text-indigo-500" to="/login">
@@ -130,7 +130,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Register;

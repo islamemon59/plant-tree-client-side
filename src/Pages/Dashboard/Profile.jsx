@@ -106,7 +106,7 @@ const Profile = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex justify-between md:flex-row flex-col gap-5">
               <div>
                 <p className="text-sm text-gray-500 mb-1">Full Name</p>
                 <h3 className="text-lg font-semibold text-primary dark:text-gray-200">
@@ -118,13 +118,6 @@ const Profile = () => {
                 <p className="text-sm text-gray-500 mb-1">Email Address</p>
                 <h3 className="text-lg font-semibold text-primary dark:text-gray-200">
                   {user?.email}
-                </h3>
-              </div>
-
-              <div>
-                <p className="text-sm text-gray-500 mb-1">Role</p>
-                <h3 className="text-lg font-semibold text-primary dark:text-gray-200">
-                  Admin
                 </h3>
               </div>
             </div>

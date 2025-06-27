@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import { Link } from "react-router";
 import { FcViewDetails } from "react-icons/fc";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const DashboardAllPlants = () => {
   const initialPlants = useLoaderData();
@@ -10,6 +12,11 @@ const DashboardAllPlants = () => {
   useEffect(() => {
     setPlants(initialPlants || []);
   }, [initialPlants]);
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+    AOS.refresh();
+  }, []);
 
   const handleAllData = () => {
     fetch("https://plant-tree-server.vercel.app/plants")
@@ -36,8 +43,8 @@ const DashboardAllPlants = () => {
   };
 
   return (
-    <div className="min-h-screen py-10 max-w-7xl mx-auto">
-      <div className="text-center mb-10">
+    <div className="min-h-screen py-10 max-w-7xl mx-auto" data-aos="fade-up">
+      <div className="text-center mb-10" data-aos="fade-down" data-aos-duration="1000">
         <h1 className="text-4xl md:text-5xl font-bold text-primary">
           All Plants Collection Here
         </h1>
@@ -47,7 +54,7 @@ const DashboardAllPlants = () => {
         </p>
       </div>
 
-      <div className="dropdown mb-8 text-center">
+      <div className="dropdown mb-8 text-center" data-aos="fade-right" data-aos-delay="100">
         <button
           tabIndex={0}
           className="btn bg-primary hover:bg-green-600 text-gray-800"
@@ -74,11 +81,11 @@ const DashboardAllPlants = () => {
       </div>
 
       {plants.length === 0 ? (
-        <p className="text-center py-10 text-gray-500 dark:text-gray-400">
+        <p className="text-center py-10 text-gray-500 dark:text-gray-400" data-aos="fade-up">
           No plants available.
         </p>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto" data-aos="fade-up" data-aos-delay="100">
           <table className="table table-zebra w-full">
             <thead>
               <tr className="bg-primary text-primary-content text-sm">
@@ -93,7 +100,7 @@ const DashboardAllPlants = () => {
             </thead>
             <tbody>
               {plants.map((plant, index) => (
-                <tr key={plant._id} className="hover">
+                <tr key={plant._id} className="hover" data-aos="zoom-in" data-aos-delay={index * 50}>
                   <td>{index + 1}</td>
                   <td>
                     <img

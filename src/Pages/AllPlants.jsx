@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
-import { Link } from "react-router"; // keep your original import
+import { Link } from "react-router";
 import { FcViewDetails } from "react-icons/fc";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AllPlants = () => {
   const initialPlants = useLoaderData();
@@ -10,6 +12,11 @@ const AllPlants = () => {
   useEffect(() => {
     setPlants(initialPlants || []);
   }, [initialPlants]);
+
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+    AOS.refresh();
+  }, []);
 
   const handleAllData = () => {
     fetch("https://plant-tree-server.vercel.app/plants")
@@ -36,8 +43,16 @@ const AllPlants = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-10 max-w-7xl mx-auto mt-20">
-      <div className="text-center mb-10">
+    <div
+      className="min-h-screen px-4 py-10 max-w-7xl mx-auto mt-20"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <div
+        className="text-center mb-10"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
         <h1 className="text-4xl md:text-5xl font-bold text-primary">
           All Plants Collection Here
         </h1>
@@ -47,7 +62,11 @@ const AllPlants = () => {
         </p>
       </div>
 
-      <div className="dropdown mb-8 text-center">
+      <div
+        className="dropdown mb-8 text-center"
+        data-aos="fade-right"
+        data-aos-delay="100"
+      >
         <button
           tabIndex={0}
           className="btn bg-primary hover:bg-green-600 text-gray-800"
@@ -84,14 +103,19 @@ const AllPlants = () => {
         ) : (
           plants.map((plant) => (
             <Link
+              key={plant._id}
               to={`/viewDetails/${plant._id}`}
               onClick={() => window.scrollTo(0, 0)}
-              className="bg-secondary/20 rounded-xl shadow-md p-4 flex flex-col transform transition-transform duration-300 hover:scale-[1.03] hover:shadow-lg no-underline"
+              className="bg-secondary/20 rounded-xl shadow-md p-4 flex flex-col transform transition-transform duration-300 hover:shadow-lg no-underline"
+              data-aos="zoom-in"
+              data-aos-delay="100"
             >
               <img
                 src={plant.photo}
                 alt={plant.name}
                 className="w-full h-48 object-cover rounded-lg mb-4"
+                data-aos="zoom-in"
+                data-aos-delay="100"
               />
               <h2 className="text-lg font-semibold text-primary mb-1">
                 {plant.name}

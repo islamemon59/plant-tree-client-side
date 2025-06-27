@@ -6,12 +6,19 @@ import monkey from "../monkey.json";
 import Loading from "../Component/Loading";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MyPlants = () => {
   const { user } = React.useContext(AuthContext);
   const [myPlants, setMyPlants] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+    AOS.refresh();
+  }, []);
 
   useEffect(() => {
     fetch(`https://plant-tree-server.vercel.app/plant/${user.email}`)
@@ -58,9 +65,9 @@ const MyPlants = () => {
   }
 
   return (
-    <div className="mt-10 px-4 max-w-7xl mx-auto">
+    <div className="mt-10 px-4 max-w-7xl mx-auto" data-aos="fade-up">
       {myPlants.length === 0 ? (
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-6" data-aos="fade-in">
           <h1 className="text-3xl md:text-5xl font-semibold text-primary">
             You haven't added any plants yet.
           </h1>
@@ -70,7 +77,7 @@ const MyPlants = () => {
         </div>
       ) : (
         <div>
-          <div className="text-center mb-10">
+          <div className="text-center mb-10" data-aos="fade-down" data-aos-duration="1000">
             <h1 className="text-4xl md:text-5xl font-bold text-primary">
               Your Added Plants
             </h1>
@@ -79,10 +86,10 @@ const MyPlants = () => {
             </p>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto" data-aos="fade-up" data-aos-delay="200">
             <table className="table w-full">
               <thead>
-                <tr className="bg-secondary text-gray-900 dark:text-white">
+                <tr className="bg-secondary text-primary dark:text-white">
                   <th>No</th>
                   <th>Photo</th>
                   <th>Name</th>
@@ -97,6 +104,8 @@ const MyPlants = () => {
                   <tr
                     key={plant._id}
                     className="hover:bg-base-200 transition duration-300"
+                    data-aos="zoom-in"
+                    data-aos-delay={index * 50}
                   >
                     <td>{index + 1}</td>
                     <td>

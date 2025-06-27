@@ -7,6 +7,9 @@ import AuthProvider from "./Context/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
 
+
+
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>

@@ -16,6 +16,8 @@ import HomePlantCard from "../Pages/HomePlantCard";
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
 import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   const initialPlants = useLoaderData();
@@ -24,6 +26,8 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     themeChange(false);
+    AOS.init({ duration: 1000, once: true });
+    AOS.refresh();
   }, []);
 
   const benefits = [
@@ -49,49 +53,41 @@ const Home = () => {
     },
   ];
 
-  // Variants for fade + slide up animation on text
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
+  // // Variants for fade + slide up animation on text
+  // const textVariants = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  // };
 
-  // Variants for staggered container animation
-  const containerVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { staggerChildren: 0.2, duration: 0.8 },
-    },
-  };
+  // // Variants for staggered container animation
+  // const containerVariants = {
+  //   hidden: { opacity: 0, y: 40 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: { staggerChildren: 0.2, duration: 0.8 },
+  //   },
+  // };
 
   return (
     <div className="space-y-28 mt-28">
       {/* Banner */}
-      <motion.div initial="hidden" animate="visible" variants={textVariants}>
+      <div data-aos="fade-up">
         <Banner />
-      </motion.div>
+      </div>
 
       {/* New Arrivals */}
-      <motion.section
-        className="px-4 max-w-7xl mx-auto"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
+      <section className="px-4 max-w-7xl mx-auto" data-aos="fade-up">
         <div className="text-center mb-12">
           <div className="flex justify-center items-center gap-2 mb-4">
             <FaLeaf className="text-primary text-3xl" />
-            <motion.h1
-              className="text-4xl md:text-5xl font-extrabold text-primary"
-              variants={textVariants}
-            >
+            <h1 className="text-4xl md:text-5xl font-extrabold text-primary">
               New Arrivals
-            </motion.h1>
+            </h1>
           </div>
-          <motion.p className="text-xl text-gray-500" variants={textVariants}>
+          <p className="text-xl text-gray-500">
             Discover the latest additions to our green family
-          </motion.p>
+          </p>
           <div className="mt-4 h-1 w-24 bg-primary mx-auto rounded-full"></div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -99,15 +95,9 @@ const Home = () => {
             <HomePlantCard key={plant._id} plant={plant} />
           ))}
         </div>
-      </motion.section>
+      </section>
 
-      {/* Highlight Section */}
-      <motion.section
-        className="px-4 max-w-7xl mx-auto"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
+      <section className="px-4 max-w-7xl mx-auto" data-aos="zoom-in-up">
         <div className="card lg:card-side bg-base-100">
           <figure>
             <img
@@ -117,48 +107,33 @@ const Home = () => {
             />
           </figure>
           <div className="card-body mt-6">
-            <motion.h2
-              className="card-title text-primary font-bold text-4xl md:text-5xl text-center"
-              variants={textVariants}
-            >
+            <h2 className="card-title text-primary font-bold text-4xl md:text-5xl text-center">
               Whispers of the Earth
-            </motion.h2>
-            <motion.p
-              className="text-xl text-center text-gray-500"
-              variants={textVariants}
-            >
+            </h2>
+            <p className="text-xl text-center text-gray-500">
               Planting trees is nature’s quiet way of building a louder, greener
               future.
-            </motion.p>
+            </p>
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Mission Section */}
-      <motion.section
+      <section
         className="relative bg-base-100 overflow-hidden"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
+        data-aos="fade-up"
       >
         <div className="absolute inset-0 -z-10">
           <div className="absolute w-[600px] h-[600px] bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
         </div>
         <div className="container mx-auto px-6 md:px-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           <div className="text-center lg:text-left max-w-xl">
-            <motion.h1
-              className="text-5xl font-bold text-primary leading-tight flex items-center gap-3"
-              variants={textVariants}
-            >
+            <h1 className="text-5xl font-bold text-primary leading-tight flex items-center gap-3">
               <FaTree className="text-green-600 text-4xl md:text-5xl" />
               Let's Make Earth Greener
-            </motion.h1>
-            <motion.p
-              className="mt-6 text-xl text-gray-500"
-              variants={textVariants}
-            >
+            </h1>
+            <p className="mt-6 text-xl text-gray-500">
               Every tree you plant brings us closer to a sustainable future.
-            </motion.p>
+            </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link to="/dashboard/addPlant" className="btn btn-primary btn-lg">
                 Start Planting
@@ -179,123 +154,81 @@ const Home = () => {
             />
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Benefits */}
-      <motion.section
-        className="bg-base-100"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={containerVariants}
-      >
-        <motion.div className="text-center mb-12" variants={textVariants}>
+      <section className="bg-base-100" data-aos="fade-up">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-primary">Why Plant Trees?</h2>
           <p className="text-xl mt-4 text-gray-500">
             Trees are essential to life on Earth. Here’s why they matter.
           </p>
-        </motion.div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-16">
           {benefits.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              className="card bg-secondary p-6 text-center shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl"
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              className="card bg-secondary p-6 text-center shadow-md transition-all duration-800 transform hover:-translate-y-2 hover:shadow-xl"
+              data-aos="zoom-in"
             >
               {item.icon}
-              <motion.h3
-                className="font-bold text-lg text-primary"
-                variants={textVariants}
-              >
-                {item.title}
-              </motion.h3>
-              <motion.p className="text-base-content" variants={textVariants}>
-                {item.description}
-              </motion.p>
-            </motion.div>
+              <h3 className="font-bold text-lg text-primary">{item.title}</h3>
+              <p className="text-base-content">{item.description}</p>
+            </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
-      {/* Featured Section */}
-      <motion.section
-        className="px-4 max-w-7xl mx-auto"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
+      <section className="px-4 max-w-7xl mx-auto" data-aos="fade-up">
         <div className="text-center mb-12">
           <div className="flex justify-center items-center gap-2 mb-4">
             <FaStar className="text-yellow-500 text-3xl" />
-            <motion.h2
-              className="text-4xl font-bold text-primary"
-              variants={textVariants}
-            >
+            <h2 className="text-4xl font-bold text-primary">
               Top Rated Plants
-            </motion.h2>
+            </h2>
           </div>
-          <motion.p className="text-xl text-gray-500" variants={textVariants}>
+          <p className="text-xl text-gray-500">
             Our community’s favorite selections, curated with care.
-          </motion.p>
+          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {initialPlants.slice(0, 4).map((plant) => (
             <HomePlantCard key={plant._id} plant={plant} />
           ))}
         </div>
-      </motion.section>
+      </section>
 
-      {/* Blog/Offer Section */}
-      <motion.section
+      <section
         className="px-4 max-w-6xl mx-auto bg-secondary rounded-xl py-16 shadow"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
+        data-aos="fade-up"
       >
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <motion.div
-            className="space-y-4 text-center md:text-left"
-            variants={textVariants}
-          >
+          <div className="space-y-4 text-center md:text-left">
             <h2 className="text-4xl font-bold text-primary flex items-center gap-2">
               <FaBookOpen /> Green Tips & Articles
             </h2>
             <p className="text-xl text-primary">
               Explore our latest blog articles and gardening guides.
             </p>
-          </motion.div>
+          </div>
           <Link to="/allPlants" className="btn btn-outline btn-primary btn-lg">
             Read Blog
           </Link>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Latest Blogs Section */}
-      <motion.section
-        className="px-4 max-w-6xl mx-auto py-20"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
+      <section className="px-4 max-w-6xl mx-auto py-20" data-aos="fade-up">
         <div className="text-center mb-12">
           <div className="flex justify-center items-center gap-2 mb-4">
             <FaPenNib className="text-primary text-3xl" />
-            <motion.h2
-              className="text-4xl font-bold text-primary"
-              variants={textVariants}
-            >
+            <h2 className="text-4xl font-bold text-primary">
               Latest Blog Posts
-            </motion.h2>
+            </h2>
           </div>
-          <motion.p className="text-xl text-gray-500" variants={textVariants}>
+          <p className="text-xl text-gray-500">
             Fresh insights, ideas, and inspiration for your green lifestyle.
-          </motion.p>
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Replace with mapped blog cards in real app */}
           {[
             {
               title: "5 Easy Plants for Beginners",
@@ -310,43 +243,27 @@ const Home = () => {
               desc: "Learn why native plants matter for biodiversity and soil health.",
             },
           ].map(({ title, desc }, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="bg-secondary/40 p-6 rounded-lg shadow-md"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
+              data-aos="fade-up"
             >
-              <motion.h3
-                className="text-2xl font-bold text-primary mb-2"
-                variants={textVariants}
-              >
-                {title}
-              </motion.h3>
-              <motion.p className="text-gray-600" variants={textVariants}>
-                {desc}
-              </motion.p>
+              <h3 className="text-2xl font-bold text-primary mb-2">{title}</h3>
+              <p className="text-gray-600">{desc}</p>
               <Link
                 to="/dashboard/allPlants"
                 className="text-primary font-medium mt-4 inline-block hover:underline"
               >
                 Read More →
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
-      {/* Newsletter Section */}
-      <motion.section
+      <section
         className="shadow-xl bg-secondary/30 py-20 px-6 md:px-12 text-center rounded"
-        initial="hidden"
-        animate="visible"
-        variants={textVariants}
+        data-aos="zoom-in"
       >
         <h2 className="text-4xl font-bold text-primary mb-4">
           Stay Updated with Green News
@@ -364,7 +281,7 @@ const Home = () => {
             <FaEnvelopeOpenText className="mr-2" /> Subscribe
           </Link>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 };

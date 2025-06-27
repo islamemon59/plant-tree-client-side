@@ -125,13 +125,6 @@ const DashboardHome = () => {
               {user?.email || "--"}
             </h3>
           </div>
-
-          <div>
-            <p className="text-sm text-gray-500 mb-1">Role</p>
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
-              Admin
-            </h3>
-          </div>
         </div>
       </motion.div>
 

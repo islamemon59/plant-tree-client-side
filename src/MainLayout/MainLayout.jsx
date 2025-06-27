@@ -12,7 +12,9 @@ const MainLayout = () => {
           <Outlet></Outlet>
         </div>
       </div>
-      <Footer></Footer>
+      <div data-aos="fade-up">
+        <Footer></Footer>
+      </div>
     </div>
   );
 };

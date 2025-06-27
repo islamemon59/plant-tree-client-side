@@ -1,5 +1,4 @@
-// AboutUs.jsx
-
+import React, { useEffect } from "react";
 import {
   FaLeaf,
   FaHandsHelping,
@@ -9,15 +8,34 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import { Link } from "react-router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function AboutUs() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+    AOS.refresh();
+  }, []);
+
   return (
-    <section className="text-gray-800 py-16 px-4 md:px-16 mt-20">
+    <section
+      className="text-gray-800 py-16 px-4 md:px-16 mt-20"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-primary mb-6">
+        <h2
+          className="text-4xl font-bold text-center text-primary mb-6"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
           About Help Nest
         </h2>
-        <p className="text-center text-lg text-gray-500 mb-12">
+        <p
+          className="text-center text-lg text-gray-500 mb-12"
+          data-aos="fade-up"
+          data-aos-duration="1200"
+        >
           Help Nest is a green movement driven by compassion and commitment. Our
           goal is to plant trees, protect biodiversity, and build a cleaner,
           healthier planet for future generations.
@@ -25,7 +43,11 @@ export default function AboutUs() {
 
         <div className="grid md:grid-cols-3 gap-10 text-center">
           {/* Mission */}
-          <div className="p-6 rounded-2xl shadow hover:shadow-xl transition bg-secondary">
+          <div
+            className="p-6 rounded-2xl shadow hover:shadow-xl transition bg-secondary"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
             <div className="flex justify-center mb-4 text-primary text-4xl">
               <FaLeaf />
             </div>
@@ -40,7 +62,11 @@ export default function AboutUs() {
           </div>
 
           {/* Vision */}
-          <div className="p-6 rounded-2xl shadow hover:shadow-xl transition bg-secondary">
+          <div
+            className="p-6 rounded-2xl shadow hover:shadow-xl transition bg-secondary"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <div className="flex justify-center mb-4 text-primary text-4xl">
               <FaGlobeAsia />
             </div>
@@ -54,7 +80,11 @@ export default function AboutUs() {
           </div>
 
           {/* Commitment */}
-          <div className="p-6 rounded-2xl shadow hover:shadow-xl transition bg-secondary">
+          <div
+            className="p-6 rounded-2xl shadow hover:shadow-xl transition bg-secondary"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
             <div className="flex justify-center mb-4 text-primary text-4xl">
               <FaHandsHelping />
             </div>
@@ -68,13 +98,21 @@ export default function AboutUs() {
           </div>
         </div>
 
-        {/* New: Our Core Initiatives (Non-card Style) */}
+        {/* Core Initiatives */}
         <div className="mt-20">
-          <h3 className="text-3xl font-bold text-primary text-center mb-10">
+          <h3
+            className="text-3xl font-bold text-primary text-center mb-10"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
             Our Core Initiatives
           </h3>
           <ul className="space-y-10 max-w-4xl mx-auto">
-            <li className="flex items-start gap-4">
+            <li
+              className="flex items-start gap-4"
+              data-aos="fade-left"
+              data-aos-delay="100"
+            >
               <span className="text-primary text-3xl">
                 <FaBolt />
               </span>
@@ -88,7 +126,11 @@ export default function AboutUs() {
                 </p>
               </div>
             </li>
-            <li className="flex items-start gap-4">
+            <li
+              className="flex items-start gap-4"
+              data-aos="fade-left"
+              data-aos-delay="200"
+            >
               <span className="text-primary text-3xl">
                 <FaRecycle />
               </span>
@@ -102,7 +144,11 @@ export default function AboutUs() {
                 </p>
               </div>
             </li>
-            <li className="flex items-start gap-4">
+            <li
+              className="flex items-start gap-4"
+              data-aos="fade-left"
+              data-aos-delay="300"
+            >
               <span className="text-primary text-3xl">
                 <FaChartLine />
               </span>
@@ -120,7 +166,11 @@ export default function AboutUs() {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-20 text-center">
+        <div
+          className="mt-20 text-center"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
           <h4 className="text-2xl font-semibold text-primary mb-4">
             Join Us in Planting Hope
           </h4>

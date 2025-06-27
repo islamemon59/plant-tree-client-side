@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import {
   FaTint,
@@ -8,16 +8,26 @@ import {
   FaSeedling,
 } from "react-icons/fa";
 import Info from "../Component/Info";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ViewDetails = () => {
   const plant = useLoaderData();
 
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+    AOS.refresh();
+  }, []);
+
   return (
     <div className="min-h-screen px-4 py-10 mt-20">
       {/* Main Plant Card */}
-      <div className="w-full max-w-5xl mx-auto bg-secondary/20 border border-green-200 rounded-3xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 transform transition-transform duration-300 hover:scale-[1.01]">
+      <div
+        className="w-full max-w-5xl mx-auto bg-secondary/20 border border-green-200 rounded-3xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 transform transition-transform duration-300"
+        data-aos="fade-up"
+      >
         {/* Plant Image */}
-        <div className="h-80 md:h-full overflow-hidden">
+        <div className="h-80 md:h-full overflow-hidden" data-aos="zoom-in">
           <img
             src={plant.photo}
             alt={`Photo of ${plant.name}`}
@@ -26,7 +36,10 @@ const ViewDetails = () => {
         </div>
 
         {/* Plant Details */}
-        <div className="p-8 flex flex-col justify-between space-y-6 bg-secondary/20">
+        <div
+          className="p-8 flex flex-col justify-between space-y-6 bg-secondary/20"
+          data-aos="fade-left"
+        >
           <div className="space-y-4">
             <h1 className="text-3xl md:text-4xl font-bold text-primary flex items-center gap-3">
               <FaSeedling className="text-primary" />
@@ -68,7 +81,7 @@ const ViewDetails = () => {
 
           <div className="pt-5 border-t text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2">
             <FaUser className="text-gray-600 dark:text-gray-300" />
-            <span className="font-medium">{plant.userName}</span> —
+            <span className="font-medium">{plant.userName}</span> —{" "}
             <a
               href={`mailto:${plant.email}`}
               className="text-blue-600 underline hover:text-blue-800 transition"
@@ -81,7 +94,7 @@ const ViewDetails = () => {
 
       {/* Extra Sections */}
       <div className="max-w-5xl mx-auto mt-12 px-4 space-y-8">
-        <div className="text-center">
+        <div className="text-center" data-aos="fade-up">
           <h2 className="text-3xl font-bold text-primary mb-2">
             Plant Care Overview
           </h2>
@@ -92,7 +105,10 @@ const ViewDetails = () => {
         </div>
 
         {/* Summary */}
-        <div className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md">
+        <div
+          className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md"
+          data-aos="fade-up"
+        >
           <h3 className="text-xl font-semibold text-success mb-2">
             🌿 Summary
           </h3>
@@ -119,7 +135,10 @@ const ViewDetails = () => {
         </div>
 
         {/* Care Tips */}
-        <div className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md">
+        <div
+          className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md"
+          data-aos="fade-up"
+        >
           <h3 className="text-xl font-semibold text-info mb-2">🛠 Care Tips</h3>
           <p className="text-sm text-base-content">
             Keep the plant in indirect sunlight. Don’t overwater. Repot if roots
@@ -127,8 +146,11 @@ const ViewDetails = () => {
           </p>
         </div>
 
-        {/* Watering Countdown (Static Placeholder) */}
-        <div className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md">
+        {/* Countdown */}
+        <div
+          className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md"
+          data-aos="fade-up"
+        >
           <h3 className="text-xl font-semibold text-warning mb-2">
             ⏳ Watering Countdown
           </h3>
@@ -138,8 +160,11 @@ const ViewDetails = () => {
           </p>
         </div>
 
-        {/* Owner Notes */}
-        <div className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md">
+        {/* Notes */}
+        <div
+          className="bg-secondary/20 border border-base-300 rounded-xl p-6 shadow-md"
+          data-aos="fade-up"
+        >
           <h3 className="text-xl font-semibold text-base-content mb-2">
             📝 Owner Notes
           </h3>

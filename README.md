@@ -93,7 +93,7 @@ JWT_SECRET=your_jwt_secret
 Run server:
 
 ```bash
-npm run dev
+nodemon index.js
 ```
 
 ---
